@@ -18,6 +18,10 @@
   font-family: 'Work Sans', sans-serif;
 }
 
+.left-header-wrap {
+  display: flex;
+}
+
 .ulist {
   display: flex;
   justify-content: center;
@@ -37,6 +41,32 @@
 
 nav {
   justify-content: flex-end;
+}
+
+fieldset legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
+  position:absolute;
+  left: -5000px;
+}
+
+button[type=submit] {
+  background: $accent;
+  color: white;
+  border: none;
+  font-size: 0.7rem;
+  padding: 0.5rem;
+  transition: 0.3s ease all;
+
+  &:disabled {
+    opacity: .5;
+    cursor: no-drop;
+  }
+}
+
+button[type=submit]:hover {
+  background: #3b5243;
 }
 
 /*  -------- Media Queries ------- */

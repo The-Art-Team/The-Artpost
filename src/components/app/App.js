@@ -5,6 +5,7 @@ import Header from './header/Header';
 import Home from '../home/Home';
 import Trending from '../trending/Trending';
 import LogIn from '../logIn/LogIn';
+import Results from '../results/Results';
 import Footer from './footer/Footer.js';
 import { removeChildren } from '../dom';
 
@@ -14,6 +15,7 @@ const template = new Template(html);
 const map = new Map();
 map.set('#trending', Trending);
 map.set('#logIn', LogIn);
+map.set('#results', Results);
 
 export default class App {
 
