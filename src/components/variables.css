@@ -1,1 +1,17 @@
 /* variables */
+
+$accent: #c95151;
+$link: #0d415f;
+
+$lightgray: #eeeeee;
+$darkgray: #444140;
+$white: #ffffff;
+$gray: #E0E0E0;
+$black: #000000;
+
+$maxViewportSize: 1280px;
+$padding: 2rem;
+
+section {
+  color: #c95151;
+}
