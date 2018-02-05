@@ -1,0 +1,53 @@
+@import '../../variables.css';
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  max-width: 21rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  color: $accent;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.ulist {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  li {
+    padding: 0 1rem;
+    a {
+      color: $black;
+      border-bottom: 3px solid $white;
+      transition: 0.3s ease all;
+    }
+    a:hover {
+      border-bottom-color: $link;
+    }
+  }
+}
+
+nav {
+  justify-content: flex-end;
+}
+
+/*  -------- Media Queries ------- */
+
+/* Mobile */
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  .header-flex {
+    flex-direction: column;
+  }
+
+  .ulist {
+    margin: 1.1rem 0 0;
+  }
+}
