@@ -1,32 +1,40 @@
 {
-  "name": "04-webpack-format",
+  "name": "vanillajs-app-template",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
     "lint": "eslint src",
     "htmlhint": "htmlhint --config .htmlhintrc **/*.html",
     "pretest": "npm run lint && npm run htmlhint",
     "test": "echo \"Error: no tests yet!\" && exit 0",
     "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack --config webpack.prod.js",
+    "deploy": "firebase deploy"
   },
-  "author": "Anwar Montasir",
-  "license": "ISC",
+  "author": "The-Art-Team",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^7.2.4",
-    "copy-webpack-plugin": "^4.3.1",
+    "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.8",
+    "dotenv": "^5.0.0",
     "eslint": "^4.15.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "html-loader": "^0.5.4",
     "html-webpack-plugin": "^2.30.1",
-    "htmlhint": "^0.9.13",
     "postcss-loader": "^2.0.10",
     "precss": "^2.0.0",
     "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.1.8",
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.10.0"
+    "webpack-dev-server": "^2.10.0",
+    "webpack-merge": "^4.1.1"
+  },
+  "dependencies": {
+    "firebase": "^4.9.0",
+    "firebaseui": "^2.5.1"
   }
 }

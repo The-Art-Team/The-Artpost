@@ -1,4 +1,5 @@
 /* eslint-env node */
+require('dotenv').config();
 const HtmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
