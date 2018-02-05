@@ -1,1 +1,37 @@
 @import '../variables.css';
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+  "header"
+  "content"
+  "footer";
+  grid-template-rows: auto 1fr auto;
+}
+
+.maxwidth-wrap {
+  /* width: 100%; */
+  max-width: $maxViewportSize;
+  margin: 0 auto;
+}
+
+#header {
+  grid-area: header;
+  /* background: $white; */
+  /* color: $black; */
+  padding: $padding;
+  text-align: center;
+}
+
+#main {
+  grid-area: content;
+  /* background: $black; */
+}
+
+#footer {
+  grid-area: footer;
+  text-align: center;
+  padding: 2rem 2rem 1rem;
+  /* background: $black; */
+}
