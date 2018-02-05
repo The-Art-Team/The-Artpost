@@ -4,7 +4,7 @@ import './app.css';
 import Header from './header/Header';
 import Home from '../home/Home';
 import Trending from '../trending/Trending';
-import LogIn from '../logIn/LogIn';
+import Account from '../account/account';
 import Results from '../results/Results';
 import Footer from './footer/Footer.js';
 import { removeChildren } from '../dom';
@@ -14,7 +14,7 @@ const template = new Template(html);
 // Hash Navigation
 const map = new Map();
 map.set('#trending', Trending);
-map.set('#logIn', LogIn);
+map.set('#account', Account);
 map.set('#results', Results);
 
 export default class App {
