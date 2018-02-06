@@ -9,6 +9,8 @@ import Account from '../account/account';
 import Results from '../results/Results';
 import { auth } from '../../services/firebase';
 import { removeChildren } from '../dom';
+import SignUp from '../account/signUp/SignUp';
+import Login from '../account/login/Login';
 
 const template = new Template(html);
 
@@ -18,6 +20,8 @@ map.set('#auth', { Component: Auth, isPublic: true });
 map.set('#trending', { Component: Trending, isPublic: true });
 map.set('#account', { Component: Account, isPublic: true });
 map.set('#results', { Component: Results, isPublic: true });
+map.set('#Login', { Component: Login, isPublic: true });
+map.set('#SignUp', { Component: SignUp, isPublic: true });
 
 const homepage = { Component: Home, isPublic: true };
 
@@ -48,7 +52,7 @@ export default class App {
     const route = routes[0];
    
     if(this.page && route === this.page.route) return;
-    // if(this.page && this.page.component) this.page.component.unrender();
+    if(this.page && this.page.component && this.page.component.unrender) this.page.component.unrender();
     removeChildren(this.main);
 
     const { Component, isPublic } = map.get(route) || homepage;
