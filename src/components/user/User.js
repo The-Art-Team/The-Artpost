@@ -43,19 +43,22 @@ export default class User {
     this.section.appendChild(childComponent.render());
   }
 
+
+
   render() {
     const dom = template.clone();
 
     // this.header = dom.querySelector('h2');
     this.section = dom.querySelector('section');
     
-    dom.querySelector('h2').textContent = users.name;
+    const heading = dom.querySelector('h2');
     
 
     this.upload = dom.querySelector('.upload-hide');
     users.child(auth.currentUser.uid).once('value', data => {
-      if(data.val().isArtist)
-        this.upload.classList.remove('upload-hide');
+      const user = data.val();
+      if(user.isArtist) this.upload.classList.remove('upload-hide');
+      heading.textContent = 'hello' + user.name;
     });
 
     this.setChildPage();

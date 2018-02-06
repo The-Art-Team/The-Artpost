@@ -29,7 +29,7 @@ export default class Header {
       else {
         child = document.createElement('a');
         child.textContent = 'Sign In';
-        child.href = '#auth';
+        child.href = '#signin';
         userItem.appendChild(child);
       }
 
