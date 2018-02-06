@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+/* eslint-env node */
+=======
 
+>>>>>>> 908a8739adb37f2a70e6d753fff4684b9c44b6b3
 require('dotenv').config({ path: '.env.prod' });
 const HtmlPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');

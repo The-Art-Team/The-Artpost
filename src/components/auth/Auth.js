@@ -3,6 +3,7 @@ import html from './auth.html';
 import { auth, providers } from '../../services/firebase';
 import firebaseui from 'firebaseui';
 
+
 const ui = new firebaseui.auth.AuthUI(auth);
 
 const template = new Template(html);

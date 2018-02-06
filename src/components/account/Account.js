@@ -3,6 +3,7 @@ import html from './account.html';
 import './account.css';
 import Login from './login/Login.js';
 import SignUp from './signUp/SignUp.js';
+import { auth } from '../../services/firebase';
 import { removeChildren } from '../dom';
 
 const template = new Template(html);
