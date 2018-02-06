@@ -26,6 +26,7 @@ export default class Item {
 
     // dom.querySelector('.item-detail') = `#results/${this.key}`;    
     // this.itemDetail = dom.querySelector('.item-detail');
+
     this.caption = dom.querySelector('h2');
     this.image = dom.querySelector('img');
 

@@ -1,5 +1,5 @@
 import html from './trending.html';
-// import './trending.css';
+import './trending.css';
 import Template from '../Template';
 
 const template = new Template(html);

@@ -7,9 +7,10 @@ const template = new Template(html);
 export default class Home {
 
   render() {
-    const dom = template.clone();
+    return template.clone();
+  }
 
-    
-    return dom;
+  unrender() {
+
   }
 }
