@@ -8,6 +8,10 @@ const template = new Template(html);
 const items = db.ref('items');
 
 export default class SearchList {
+  constructor(list) {
+    this.list = list || items;
+  }
+
 
   render() {
     const dom = template.clone();
