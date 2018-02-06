@@ -10,6 +10,7 @@ import { auth, db } from '../../services/firebase';
 
 const template = new Template(html);
 const itemsByUser = db.ref('itemsByUser');
+const users = db.ref('users');
 
 export default class User {
 
@@ -22,7 +23,7 @@ export default class User {
     const routes = window.location.hash.split('/');
 
     const childPage = routes[1] || '';
- 
+
     if(this.childPage === childPage) return;
 
     this.childPage = childPage;
@@ -45,8 +46,18 @@ export default class User {
   render() {
     const dom = template.clone();
 
-    this.header = dom.querySelector('h2');
+    // this.header = dom.querySelector('h2');
     this.section = dom.querySelector('section');
+    
+    dom.querySelector('h2').textContent = users.name;
+    
+
+    this.upload = dom.querySelector('.upload-hide');
+    users.child(auth.currentUser.uid).once('value', data => {
+      if(data.val().isArtist)
+        this.upload.classList.remove('upload-hide');
+    });
+
     this.setChildPage();
     
     return dom;

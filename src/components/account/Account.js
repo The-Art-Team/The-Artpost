@@ -6,6 +6,8 @@ import './account.css';
 import { auth } from '../../services/firebase';
 import { removeChildren } from '../dom';
 
+// const users = db.ref('users');
+
 const template = new Template(html);
 
 export default class Account {

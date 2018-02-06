@@ -1,0 +1,14 @@
+@import '../variables.css';
+
+.maxwidth-wrap {
+  /* width: 100%; */
+  max-width: $maxViewportSize;
+  margin: 0 auto;
+}
+
+.account-nav {
+  display: flex;
+  li {
+    padding: 0 0.5rem;
+  }
+}

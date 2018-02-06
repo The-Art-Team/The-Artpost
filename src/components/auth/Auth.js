@@ -19,8 +19,6 @@ export default class Auth {
     const dom = template.clone();
 
 
-    
-
 
     // setTimeout(() => {
     //   const { origin, pathname } = window.location;
