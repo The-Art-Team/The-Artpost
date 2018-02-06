@@ -1,0 +1,13 @@
+@import '../../variables.css';
+
+#art-category {
+    li {
+        display: inline-block;
+        h2 {
+            font-family: sans-serif;
+               img {
+                   
+               }
+        }
+    }
+}
