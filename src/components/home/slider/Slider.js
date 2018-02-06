@@ -1,10 +1,10 @@
-import html from './category.html';
-import './category.css';
+import html from './slider.html';
+import './slider.css';
 import Template from '../../Template';
 
 const template = new Template(html);
 
-export default class Category {
+export default class Slider {
 
   render() {
     const dom = template.clone();
