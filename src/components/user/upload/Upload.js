@@ -1,7 +1,7 @@
-import Template from '../Template';
+import Template from '../../Template';
 import html from './upload.html';
 import './upload.css';
-import { removeChildren } from '../dom';
+// import { removeChildren } from '../dom';
 import { db, auth } from '../../../services/firebase';
 
 const template = new Template(html);

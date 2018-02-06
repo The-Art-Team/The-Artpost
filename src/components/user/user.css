@@ -1,0 +1,14 @@
+@import '../variables.css';
+
+.user-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-list {
+  display: flex;
+  justify-content: flex-end;
+  li {
+    padding: 0 0.5rem;
+  }
+}

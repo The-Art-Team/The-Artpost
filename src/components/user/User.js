@@ -1,4 +1,4 @@
-import Template from '../../Template';
+import Template from '../Template';
 import html from './user.html';
 import './user.css';
 import Favorites from './favorites/Favorites';
@@ -30,11 +30,11 @@ export default class User {
 
     let childComponent;
     if(childPage === 'upload') childComponent = new Upload();
-    else if(childPage === 'my') childComponent = new UserList(itemsByUser.child(auth.currentUser.uid));
+    else if(childPage === 'favorites') childComponent = new Favorites(itemsByUser.child(auth.currentUser.uid));
     else if(childPage) childComponent = new Following(childPage);
     else childComponent = new Profile();
 
-    this.updateHeader(childPage === 'my');
+    // this.updateHeader(childPage === 'my');
 
     this.childComponent = childComponent;
     this.section.appendChild(childComponent.render());
@@ -43,7 +43,7 @@ export default class User {
   render() {
     const dom = template.clone();
 
-    this.header = dom.querySelector('h1');
+    this.header = dom.querySelector('h2');
     this.section = dom.querySelector('section');
     this.setChildPage();
     
