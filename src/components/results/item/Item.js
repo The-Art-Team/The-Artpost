@@ -18,15 +18,11 @@ export default class Item {
   // add text
   update(item) {
     this.caption.textContent = `${item.name}`;
-    // this.image.src = `${itemsImages.url}`;
     this.image.alt = item.name;
   }
 
   render() {
     const dom = template.clone();
-
-    // dom.querySelector('.item-detail') = `#results/${this.key}`;    
-    // this.itemDetail = dom.querySelector('.item-detail');
 
     this.caption = dom.querySelector('h2');
     this.image = dom.querySelector('img');
@@ -34,7 +30,7 @@ export default class Item {
     // add image use onvalue/data.val()
     this.onValue = this.itemsImages.on('child_added', data => {
       this.image.src = data.val();
-      // this.image.alt = item.name;
+      // use for cloudinary below
       // this.image.src = getUrl(data.val(), 'c_fill,w_500,h_500');
     });
 
