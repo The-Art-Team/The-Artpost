@@ -1,10 +1,10 @@
-import html from './log-in.html';
+import html from './login.html';
 import './login.css';
-import Template from '../Template';
+import Template from '../../Template';
 
 const template = new Template(html);
 
-export default class LogIn {
+export default class Login {
 
   render() {
     const dom = template.clone();

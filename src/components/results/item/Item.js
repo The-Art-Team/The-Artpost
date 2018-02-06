@@ -22,7 +22,8 @@ export default class Item {
   render() {
     const dom = template.clone();
 
-    dom.getElementById('item-detail') = `#results/${this.key}`;    
+    // dom.getElementById('item-detail') = `#results/${this.key}`; 
+    // this.itemDetail = dom.querySelector('.item-detail');   
     this.caption = dom.querySelector('h2');
     this.image = dom.querySelector('img');
 
