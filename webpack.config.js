@@ -19,10 +19,6 @@ module.exports = {
       'process.env.STORAGE_BUCKET': JSON.stringify(process.env.STORAGE_BUCKET),
       'process.env.MESSAGING_SENDER_ID': JSON.stringify(process.env.MESSAGING_SENDER_ID) 
     }),
-<<<<<<< HEAD
-=======
-
->>>>>>> 908a8739adb37f2a70e6d753fff4684b9c44b6b3
     new HtmlPlugin({ template: './src/index.html' })
   ],
   module: {

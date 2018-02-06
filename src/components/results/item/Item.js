@@ -15,10 +15,11 @@ export default class Item {
     this.itemsImages = itemsImages.child(key).limitToFirst(1);
   }
 
+  // add text
   update(item) {
     this.caption.textContent = `${item.name}`;
-    this.image.src = `${itemsImages.url}`;
-    // this.image.alt = item.name;
+    // this.image.src = `${itemsImages.url}`;
+    this.image.alt = item.name;
   }
 
   render() {
@@ -30,8 +31,10 @@ export default class Item {
     this.caption = dom.querySelector('h2');
     this.image = dom.querySelector('img');
 
+    // add image use onvalue/data.val()
     this.onValue = this.itemsImages.on('child_added', data => {
       this.image.src = data.val();
+      // this.image.alt = item.name;
       // this.image.src = getUrl(data.val(), 'c_fill,w_500,h_500');
     });
 
