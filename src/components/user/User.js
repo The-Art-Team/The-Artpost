@@ -1,4 +1,4 @@
-import Template from '../Template';
+import Template from '../../Template';
 import html from './user.html';
 import './user.css';
 import Favorites from './favorites/Favorites';
@@ -30,7 +30,7 @@ export default class User {
 
     let childComponent;
     if(childPage === 'upload') childComponent = new Upload();
-    // else if(childPage === 'my') childComponent = new PetList(petsByUser.child(auth.currentUser.uid));
+    else if(childPage === 'my') childComponent = new UserList(itemsByUser.child(auth.currentUser.uid));
     else if(childPage) childComponent = new Following(childPage);
     else childComponent = new Profile();
 

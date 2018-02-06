@@ -2,6 +2,7 @@ import Template from '../Template';
 import html from './auth.html';
 import { auth, providers } from '../../services/firebase';
 import firebaseui from 'firebaseui';
+import 'firebaseui/dist/firebaseui.css';
 
 
 const ui = new firebaseui.auth.AuthUI(auth);
@@ -27,6 +28,8 @@ export default class Auth {
         ]
       });
     });
+
+    // window.location.hash = '#user';
 
     return dom;
 

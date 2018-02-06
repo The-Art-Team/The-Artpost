@@ -1,43 +1,54 @@
 import Template from '../Template';
 import html from './account.html';
 import './account.css';
-import Login from './login/Login.js';
-import SignUp from './signUp/SignUp.js';
+// import Login from './login/Login.js';
+// import SignUp from './signUp/SignUp.js';
 import { auth } from '../../services/firebase';
 import { removeChildren } from '../dom';
 
 const template = new Template(html);
 
 export default class Account {
-  constructor() {
-    this.hashChange = () => this.setChildPage();
-    window.addEventListener('hashchange', this.hashChange);
-  }
+  // constructor() {
+  //   this.hashChange = () => this.setChildPage();
+  //   window.addEventListener('hashchange', this.hashChange);
+  // }
 
-  setChildPage() {
-    const routes = window.location.hash.split('/');
-    const childPage = routes[1] || '';
-    if(this.childPage === childPage) return;
+  // setChildPage() {
+  //   const routes = window.location.hash.split('/');
+  //   const childPage = routes[1] || '';
+  //   if(this.childPage === childPage) return;
 
-    this.childPage = childPage;
-    if(this.childComponent) this.childComponent.unrender();
-    removeChildren(this.section);
+  //   this.childPage = childPage;
+  //   if(this.childComponent) this.childComponent.unrender();
+  //   removeChildren(this.section);
 
-    let childComponent;
-    if(childPage) childComponent = new Login(childPage);
-    else childComponent = new SignUp();
+  //   let childComponent;
+  //   if(childPage) childComponent = new Login(childPage);
+  //   else childComponent = new SignUp();
 
-    this.childComponent = childComponent;
-    this.section.appendChild(childComponent.render());
-  }
+  //   this.childComponent = childComponent;
+  //   this.section.appendChild(childComponent.render());
+  // }
   render() {
     const dom = template.clone();
-    this.section = dom.querySelector('section');
-    this.setChildPage();
+
+    // this.section = dom.querySelector('section');
+    // this.setChildPage();
+
+    const user = auth.currentUser;
+    
+    dom.querySelector('.user-name').textContent = user.displayName;
+    if(user.photoURL) dom.querySelector('.profile').src = user.photoURL;
+  
+    dom.querySelector('.sign-out').addEventListener('click', () => {
+      auth.signOut();
+    });
+
     return dom;
   }
 
   unrender() {
-    window.removeEventListener('hashchange', this.hashChange);
+    // window.removeEventListener('hashchange', this.hashChange);
   }
 }

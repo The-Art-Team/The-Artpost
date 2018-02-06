@@ -1,1 +1,6 @@
 @import '../variables.css';
+
+.maxwidth-wrap {
+  max-width: $maxViewportSize;
+  margin: 0 auto;
+}
