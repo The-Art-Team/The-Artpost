@@ -4,3 +4,15 @@
   max-width: $maxViewportSize;
   margin: 0 auto;
 }
+
+.uflex {
+  display: flex;
+}
+
+.sign-out {
+  margin: 0 0 0 1rem;
+}
+
+.sign-out:hover {
+  border-bottom: 0px;
+}

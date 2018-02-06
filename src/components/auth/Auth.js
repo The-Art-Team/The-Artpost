@@ -25,7 +25,8 @@ export default class Auth {
         signInOptions: [
           providers.EmailAuthProvider.PROVIDER_ID, 
           providers.GoogleAuthProvider.PROVIDER_ID,
-        ]
+        ],
+        'credentialHelper': firebaseui.auth.CredentialHelper.NONE
       });
     });
 

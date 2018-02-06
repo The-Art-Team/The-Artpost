@@ -43,6 +43,9 @@ nav {
   justify-content: flex-end;
 }
 
+.user-name {
+  text-transform: capitalize;
+}
 
 
 /*  -------- Media Queries ------- */

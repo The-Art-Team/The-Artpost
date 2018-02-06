@@ -20,19 +20,21 @@ export default class User {
 
   setChildPage() {
     const routes = window.location.hash.split('/');
-   
+
     const childPage = routes[1] || '';
+ 
     if(this.childPage === childPage) return;
 
     this.childPage = childPage;
-    if(this.childComponent) this.childComponent.unrender();
+    if(this.childPage && this.childPage.childComponent && this.childPage.childComponent.unrender) this.childPage.childComponent.unrender();
     removeChildren(this.section);
 
     let childComponent;
     if(childPage === 'upload') childComponent = new Upload();
     else if(childPage === 'favorites') childComponent = new Favorites(itemsByUser.child(auth.currentUser.uid));
-    else if(childPage) childComponent = new Following(childPage);
+    else if(childPage === 'following') childComponent = new Following(childPage);
     else childComponent = new Profile();
+    console.log(childPage);
 
     // this.updateHeader(childPage === 'my');
 
