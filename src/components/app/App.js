@@ -2,49 +2,76 @@ import Template from '../Template';
 import html from './app.html';
 import './app.css';
 import Header from './header/Header';
+import Auth from '../auth/Auth';
 import Home from '../home/Home';
 import Trending from '../trending/Trending';
 import Account from '../account/account';
 import Results from '../results/Results';
-import Footer from './footer/Footer.js';
+import { auth } from '../../services/firebase';
 import { removeChildren } from '../dom';
 
 const template = new Template(html);
 
 // Hash Navigation
 const map = new Map();
-map.set('#trending', Trending);
-map.set('#account', Account);
-map.set('#results', Results);
+map.set('#auth', { Component: Auth, isPublic: true });
+map.set('#trending', { Component: Trending, isPublic: true });
+map.set('#account', { Component: Account, isPublic: true });
+map.set('#results', { Component: Results, isPublic: true });
+
+const homepage = { Component: Home, isPublic: true };
 
 export default class App {
 
   constructor() {
     this.hashChange = () => this.setPage();
     window.addEventListener('hashchange', this.hashChange);
-  }
-  
-  setPage() {
-    const routes = window.location.hash.split('/');
-    const page = routes[0];
-    if(page === this.page) return;
 
-    // if(this.pageComponent) this.pageComponent.unrender();
-    this.page = page;
-    const Component = map.get(this.page) || Home;
-    this.pageComponent = new Component();
+    let authed = false;
+
+    auth.onAuthStateChanged(user => {
+      this.user = user;
+      if(!authed) {
+        authed = true;  
+        this.setPage();
+      }  
+
+      if(!user && !this.page.isPublic) {
+        window.location.hash = '#';
+      }
+    });
+  }
+
+  setPage() {
+    const { hash } = window.location;
+    const routes = hash.split('/');
+    const route = routes[0];
+   
+    if(this.page && route === this.page.route) return;
+    // if(this.page && this.page.component) this.page.component.unrender();
     removeChildren(this.main);
-    this.main.appendChild(this.pageComponent.render());
+
+    const { Component, isPublic } = map.get(route) || homepage;
+    
+    let component = null;
+
+    if(!isPublic && !this.user) {
+      window.location.hash = `#auth/${encodeURIComponent(hash)}`;
+    }
+
+    else {
+      component = new Component();
+    
+      this.page = { route, component, isPublic };
+      this.main.appendChild(component.render());
+    }
+
   }
 
   render() {
     const dom = template.clone();
-
     dom.querySelector('header').appendChild(new Header().render());
-    dom.querySelector('footer').appendChild(new Footer().render());
-
     this.main = dom.querySelector('main');
-    this.setPage();
 
     return dom;
   }
