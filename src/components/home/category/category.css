@@ -1,13 +1,18 @@
 @import '../../variables.css';
 
 #art-category {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    
     li {
-        display: inline-block;
-        h2 {
-            font-family: sans-serif;
-               img {
-                   
+        a {
+            h2 {
+                font-family: sans-serif;
                }
+               /* img {
+
+               } */
         }
     }
 }
