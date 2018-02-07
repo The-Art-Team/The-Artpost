@@ -1,18 +1,14 @@
 @import '../variables.css';
 
 .maxwidth-wrap {
+  /* width: 100%; */
   max-width: $maxViewportSize;
   margin: 0 auto;
 }
 
-.uflex {
+.account-nav {
   display: flex;
-}
-
-.sign-out {
-  margin: 0 0 0 1rem;
-}
-
-.sign-out:hover {
-  border-bottom: 0px;
+  li {
+    padding: 0 0.5rem;
+  }
 }

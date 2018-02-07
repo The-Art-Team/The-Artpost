@@ -22,7 +22,8 @@ export default class Search {
 
     const form = dom.querySelector('form');
     form.addEventListener('submit', event => this.handleSubmit(event));
-    
+    // window.location.hash = #results
+
     return dom;
   }
 }

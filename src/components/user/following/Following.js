@@ -1,7 +1,7 @@
-import Template from '../Template';
+import Template from '../../Template';
 import html from './following.html';
 import './following.css';
-import { removeChildren } from '../dom';
+// import { removeChildren } from '../dom';
 
 const template = new Template(html);
 

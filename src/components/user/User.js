@@ -10,6 +10,7 @@ import { auth, db } from '../../services/firebase';
 
 const template = new Template(html);
 const itemsByUser = db.ref('itemsByUser');
+const users = db.ref('users');
 
 export default class User {
 
@@ -20,31 +21,43 @@ export default class User {
 
   setChildPage() {
     const routes = window.location.hash.split('/');
-   
+
     const childPage = routes[1] || '';
+
     if(this.childPage === childPage) return;
 
     this.childPage = childPage;
-    if(this.childComponent) this.childComponent.unrender();
+    if(this.childPage && this.childPage.childComponent && this.childPage.childComponent.unrender) this.childPage.childComponent.unrender();
     removeChildren(this.section);
 
     let childComponent;
     if(childPage === 'upload') childComponent = new Upload();
-    // else if(childPage === 'my') childComponent = new PetList(petsByUser.child(auth.currentUser.uid));
-    else if(childPage) childComponent = new Following(childPage);
+    else if(childPage === 'favorites') childComponent = new Favorites(itemsByUser.child(auth.currentUser.uid));
+    else if(childPage === 'following') childComponent = new Following(childPage);
     else childComponent = new Profile();
-
-    this.updateHeader(childPage === 'my');
+    console.log(childPage);
 
     this.childComponent = childComponent;
     this.section.appendChild(childComponent.render());
   }
 
+
+
   render() {
     const dom = template.clone();
 
-    this.header = dom.querySelector('h1');
     this.section = dom.querySelector('section');
+    const heading = dom.querySelector('h2');
+    
+
+    this.upload = dom.querySelector('.upload-hide');
+    users.child(auth.currentUser.uid).once('value', data => {
+      const user = data.val();
+      // console.log('test', user);
+      if(user.isArtist) this.upload.classList.remove('upload-hide');
+      heading.textContent = 'hello' + user.name;
+    });
+
     this.setChildPage();
     
     return dom;

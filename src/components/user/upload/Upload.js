@@ -1,12 +1,13 @@
-import Template from '../Template';
+import Template from '../../Template';
 import html from './upload.html';
 import './upload.css';
-import { removeChildren } from '../dom';
+// import { removeChildren } from '../dom';
 import { db, auth } from '../../../services/firebase';
 
 const template = new Template(html);
 const items = db.ref('items');
 const itemsByUser = db.ref('itemsByUser');
+const itemsImages = db.ref('items-images');
 
 export default class Upload {
 
@@ -14,6 +15,7 @@ export default class Upload {
     this.onAdd = onAdd;
     const currentUser = auth.currentUser;
     this.myItems = itemsByUser.child(currentUser.uid);
+    this.myImages = itemsImages.child(currentUser.uid);
   }
 
   handleSubmit(form) {
