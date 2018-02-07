@@ -8,11 +8,12 @@ const template = new Template(html);
 export default class Category {
 
   render() {
-    return template.clone();
+    const dom = template.clone();
     
+    return dom;
   }
-
+    
   unrender() {
-
+    
   }
 }
