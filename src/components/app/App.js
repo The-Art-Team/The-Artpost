@@ -2,9 +2,10 @@ import Template from '../Template';
 import html from './app.html';
 import './app.css';
 import Header from './header/Header';
+import Footer from './footer/Footer';
 import Auth from '../auth/Auth';
 import Home from '../home/Home';
-import Trending from '../trending/Trending';
+import TrendingList from '../trending/TrendingList';
 import Account from '../account/Account';
 import Signin from '../account/Signin';
 import User from '../user/User';
@@ -19,7 +20,7 @@ const template = new Template(html);
 // Hash Navigation
 const map = new Map();
 map.set('#auth', { Component: Auth, isPublic: true });
-map.set('#trending', { Component: Trending, isPublic: true });
+map.set('#trending', { Component: TrendingList, isPublic: true });
 map.set('#account', { Component: Account, isPublic: true });
 map.set('#signin', { Component: Signin, isPublic: true });
 map.set('#user', { Component: User, isPublic: false });
@@ -80,6 +81,7 @@ export default class App {
     const dom = template.clone();
     dom.querySelector('header').appendChild(new Header().render());
     this.main = dom.querySelector('main');
+    dom.querySelector('footer').appendChild(new Footer().render());
 
     return dom;
   }
