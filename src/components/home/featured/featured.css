@@ -1,0 +1,38 @@
+.wrapper {
+    padding-top: 2rem;
+    p {
+        max-width: 70%;
+        margin: .5rem auto;
+    }
+}
+
+.img1, .img2 {
+    max-width: 70%;
+    margin: .5rem auto;
+    justify-self: center;
+}
+
+.bio1, .bio2 {
+    padding:1rem;
+}
+
+@media (min-width: 600px) {
+        .bio1 {grid-area: A;}
+        .img1 {grid-area: B;}
+        .bio2 {grid-area: C;}
+        .img2 {grid-area: D;}
+  
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas:
+            "B A A"
+            "C C D";
+            grid-gap: 1rem;
+            margin-top: 2rem;
+            align-items: center;      
+    }
+}
+
+
+
