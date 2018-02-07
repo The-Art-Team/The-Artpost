@@ -1,23 +1,23 @@
 import Template from '../../Template';
-import html from './upload.html';
-import './upload.css';
+import html from './add.html';
+import './add.css';
 // import { removeChildren } from '../dom';
 import { db, auth } from '../../../services/firebase';
 
 const template = new Template(html);
 const items = db.ref('items');
 const itemsByUser = db.ref('itemsByUser');
-const itemsImages = db.ref('items-images');
+// const itemsImages = db.ref('items-images');
 
-export default class Upload {
+export default class Add {
 
   constructor(onAdd) {
     this.onAdd = onAdd;
     const currentUser = auth.currentUser;
     this.myItems = itemsByUser.child(currentUser.uid);
-    this.myImages = itemsImages.child(currentUser.uid);
   }
 
+  // submit art
   handleSubmit(form) {
     this.error.textContent = '';
 
@@ -43,6 +43,7 @@ export default class Upload {
 
     this.error = dom.querySelector('.error');
 
+    // form
     this.form = dom.querySelector('form');
     this.form.addEventListener('submit', event => {
       event.preventDefault();
@@ -53,6 +54,8 @@ export default class Upload {
       event.preventDefault();
       window.location.hash = '#user';
     });
+
+    
 
     return dom;
   }

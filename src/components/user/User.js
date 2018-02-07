@@ -4,7 +4,8 @@ import './user.css';
 import Favorites from './favorites/Favorites';
 import Following from './following/Following';
 import Profile from './profile/Profile';
-import Upload from './upload/Upload';
+import Add from './add/Add';
+import MyArt from './myart/MyArt';
 import { removeChildren } from '../dom';
 import { auth, db } from '../../services/firebase';
 
@@ -31,7 +32,8 @@ export default class User {
     removeChildren(this.section);
 
     let childComponent;
-    if(childPage === 'upload') childComponent = new Upload();
+    if(childPage === 'add') childComponent = new Add();
+    else if(childPage === 'myart') childComponent = new MyArt(auth.currentUser.uid);
     else if(childPage === 'favorites') childComponent = new Favorites(itemsByUser.child(auth.currentUser.uid));
     else if(childPage === 'following') childComponent = new Following(childPage);
     else childComponent = new Profile();
@@ -50,11 +52,11 @@ export default class User {
     const heading = dom.querySelector('h2');
     
 
-    this.upload = dom.querySelector('.upload-hide');
+    this.add = dom.querySelector('.add-hide');
     users.child(auth.currentUser.uid).once('value', data => {
       const user = data.val();
       // console.log('test', user);
-      if(user.isArtist) this.upload.classList.remove('upload-hide');
+      if(user.isArtist) this.add.classList.remove('add-hide');
       heading.textContent = 'hello' + user.name;
     });
 
