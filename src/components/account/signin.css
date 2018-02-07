@@ -1,7 +1,6 @@
 @import '../variables.css';
 
 .maxwidth-wrap {
-  /* width: 100%; */
   max-width: $maxViewportSize;
   margin: 0 auto;
 }
@@ -11,4 +10,34 @@
   li {
     padding: 0 0.5rem;
   }
+}
+
+.login-nav {
+  display: flex;
+  justify-content: center;
+}
+
+/* form {
+  width: 100%;
+  max-width: 600px;
+  margin: 3rem 0 0 0;
+} */
+
+fieldset legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
+  position:absolute;
+  left: -5000px;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin-left: 0px;
+}
+
+label {
+  display: block;
+  padding: 0 0 .5rem;
 }
