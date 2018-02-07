@@ -2,7 +2,6 @@ import Template from '../../Template';
 import html from './upload.html';
 import './upload.css';
 import Image from './Image';
-// import { removeChildren } from '../dom';
 import { db, auth } from '../../../services/firebase';
 
 const template = new Template(html);
