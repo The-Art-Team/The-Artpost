@@ -3,10 +3,10 @@ import html from './account.html';
 import './account.css';
 // import Login from './login/Login.js';
 // import SignUp from './signUp/SignUp.js';
-import { auth } from '../../services/firebase';
+import { auth, db } from '../../services/firebase';
 import { removeChildren } from '../dom';
 
-// const users = db.ref('users');
+const users = db.ref('users');
 
 const template = new Template(html);
 
@@ -37,11 +37,19 @@ export default class Account {
 
     // this.section = dom.querySelector('section');
     // this.setChildPage();
-
-    const user = auth.currentUser;
     
-    dom.querySelector('.user-name').textContent = user.displayName;
-    if(user.photoURL) dom.querySelector('.profile').src = user.photoURL;
+    const userHeading = dom.querySelector('.user-name');
+
+    users.child(auth.currentUser.uid).on('value', data => {
+      const user = data.val();
+      console.log('test', user.name);
+      userHeading.textContent = user.name;
+    });
+
+    // const user = auth.currentUser;
+    // console.log(user);
+    
+    // if(user.photoURL) dom.querySelector('.profile').src = user.photoURL;
   
     dom.querySelector('.sign-out').addEventListener('click', () => {
       auth.signOut();

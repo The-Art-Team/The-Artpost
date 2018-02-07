@@ -37,8 +37,6 @@ export default class User {
     else childComponent = new Profile();
     console.log(childPage);
 
-    // this.updateHeader(childPage === 'my');
-
     this.childComponent = childComponent;
     this.section.appendChild(childComponent.render());
   }
@@ -48,15 +46,14 @@ export default class User {
   render() {
     const dom = template.clone();
 
-    // this.header = dom.querySelector('h2');
     this.section = dom.querySelector('section');
-    
     const heading = dom.querySelector('h2');
     
 
     this.upload = dom.querySelector('.upload-hide');
     users.child(auth.currentUser.uid).once('value', data => {
       const user = data.val();
+      // console.log('test', user);
       if(user.isArtist) this.upload.classList.remove('upload-hide');
       heading.textContent = 'hello' + user.name;
     });
