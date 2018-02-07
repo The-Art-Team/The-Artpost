@@ -5,7 +5,13 @@ import Header from './header/Header';
 import Footer from './footer/Footer';
 import Auth from '../auth/Auth';
 import Home from '../home/Home';
-import TrendingList from '../trending/TrendingList';
+import TrendingList from '../category/trending/TrendingList';
+// import DigitalList from '../category/digital/DigitalList';
+// import DrawingList from '../category/drawing/DrawingList';
+// import PaintingList from '../category/painting/PaintingList';
+// import PhotoList from '../category/photo/PhotoList';
+// import PrintList from '../category/print/PrintList';
+// import SculptureList from '../category/sculpture/SculptureList';
 import Account from '../account/Account';
 import Signin from '../account/Signin';
 import User from '../user/User';
@@ -27,6 +33,13 @@ map.set('#user', { Component: User, isPublic: false });
 map.set('#results', { Component: Results, isPublic: true });
 map.set('#Login', { Component: Login, isPublic: true });
 map.set('#SignUp', { Component: SignUp, isPublic: true });
+// map.set('#digital', { Component: DigitalList, isPublic: true });
+// map.set('#drawing', { Component: DrawingList, isPublic: true });
+// map.set('#painting', { Component: PaintingList, isPublic: true });
+// map.set('#photo', { Component: PhotoList, isPublic: true });
+// map.set('#sculpture', { Component: SculptureList, isPublic: true });
+// map.set('#print', { Component: PrintList, isPublic: true });
+
 
 const homepage = { Component: Home, isPublic: true };
 
