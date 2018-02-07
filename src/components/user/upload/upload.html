@@ -1,11 +1,9 @@
 <form class="add-art">
-  <label>
-    <div>Art Title</div>
+  <label name="title">Art Title
     <input required name="name">
   </label>
 
-  <label>
-    <div>Category</div>
+  <label for="select-category">Category
     <select name="category" required>
       <option value="painting">Painting</option>
       <option value="photography">Photography</option>
@@ -15,7 +13,11 @@
       <option value="digital">Digital Art</option>
     </select>
   </label>
-  
+
+  <label>
+    <input type="file" name="pic" accept="image/*">
+  </label>
+
   <label>
     <button type="button">Cancel</button>
     <button type="submit">Add</button>
