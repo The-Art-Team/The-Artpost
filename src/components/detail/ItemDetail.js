@@ -51,20 +51,22 @@ export default class ItemDetail {
     const text = dom.querySelector('p');
     const imageSection = dom.querySelector('section.images');
     const removeButton = dom.querySelector('button.remove');
-    
+    const fav = dom.querySelector('.fav-flex');
 
     this.onValue = this.item.on('value', data => {
       const item = data.val();
       // we might have deleted:
       if(!item) return;
 
-      bread.innerHTML = `<a href="#home">home</a> > <a href="#category/${item.category}">${item.category}</a> > <a href="#items/${this.key}">${item.name}</a>`;
+      fav.addEventListener('click', () => {
+        
+      });
 
+      bread.innerHTML = `<a href="#home">home</a> > <a href="#category/${item.category}">${item.category}</a> > <a href="#items/${this.key}">${item.name}</a>`;
       header.textContent = `${item.name}`;
       text.textContent = `${item.description}`;
 
       const isOwner = item.owner === auth.currentUser.uid;
-
       this.images = new Image(this.key, isOwner);
       imageSection.append(this.images.render());
 
