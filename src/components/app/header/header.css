@@ -53,8 +53,8 @@ nav {
 }
 
 .ulist li:hover .submenu {
-  display: block;
-  max-height: 200px;
+  /* display: block; */
+  max-height: 250px;
 }
 
 .submenu {
@@ -63,8 +63,30 @@ nav {
   transition: 0.5s ease all;
   position: absolute;
   z-index: 50;
-  display: flex;
+  background: white;
+  padding: 0 2rem;
+  margin: 3rem 0 0 -2.5rem;
+  box-shadow: 10px 10px 25px 0px rgba(0,0,0,0.19);
 }
+
+.submenu li {
+  padding: .7rem 0 .7rem;
+}
+
+button.sign-out {
+  font-size: 0.8rem;
+  border: 0;
+  border-radius: 4px;
+  background-color: $lightgray;
+  padding: 0.5rem 0.8rem;
+  margin: -1rem 0 0 1.4rem;
+  transition: 0.3s ease all;
+  &:hover {
+    background-color: $accent;
+    color: white;
+  }
+}
+
 
 /*  -------- Media Queries ------- */
 

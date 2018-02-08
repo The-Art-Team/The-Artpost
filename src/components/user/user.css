@@ -20,6 +20,10 @@
   display: none;
 }
 
+.hr {
+  color: gray;
+}
+
 @media (max-width: 900px) {
   .user-subnav {
     flex-direction: column;
