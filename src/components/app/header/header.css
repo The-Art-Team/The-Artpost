@@ -47,6 +47,20 @@ nav {
   text-transform: capitalize;
 }
 
+.image-logo {
+  width: 50%;
+}
+
+.ulist li:hover .submenu {
+  display: flex;
+  max-height: 200px;
+}
+
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.5s ease all;
+}
 
 /*  -------- Media Queries ------- */
 

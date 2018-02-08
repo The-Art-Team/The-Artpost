@@ -1,13 +1,16 @@
 @import '../variables.css';
 
-.user-nav {
+.user-subnav {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-content: center;
 }
 
 .user-list {
   display: flex;
   justify-content: flex-end;
+  margin: 0;
   li {
     padding: 0 .3rem;
   }
@@ -15,4 +18,12 @@
 
 .upload-hide {
   display: none;
+}
+
+@media (max-width: 900px) {
+  .user-subnav {
+    flex-direction: column;
+    align-items: center;
+    justify-content: unset;
+  }
 }
