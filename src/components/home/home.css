@@ -15,8 +15,13 @@
     top: 80%;
     transform: translateY(-50%);
     z-index: 10;
-    background: rgba(255,255,255,0.8);
+    background-color: rgba(233, 255, 255, 0.7);
     padding: 2rem;
-    width: 40%;
     font-size: 1.7rem;
+    transition: 0.3s ease all;
+    &:hover {
+        background-color: rgba(233, 35, 35, 0.9);
+        color: white;
+        cursor: pointer;
+    }
 }
