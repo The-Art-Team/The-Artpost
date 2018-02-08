@@ -75,12 +75,6 @@ export default class Add {
       this.handleSubmit(event.target);
     });
 
-  
-
-  
-
-    
-
     return dom;
   }
 
