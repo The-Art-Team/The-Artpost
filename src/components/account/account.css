@@ -15,4 +15,5 @@
 
 .sign-out:hover {
   border-bottom: 0px;
+  cursor: pointer;
 }
