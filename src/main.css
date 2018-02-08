@@ -5,8 +5,8 @@
 html {height: 100%;}
 
 body {
-  /* font-family: 'Work Sans', sans-serif; */
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Work Sans', sans-serif;
+  /* font-family: 'Inconsolata', monospace; */
   font-weight: 400;
   color: $black;
   min-height: 100%;

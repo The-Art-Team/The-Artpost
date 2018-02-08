@@ -30,13 +30,6 @@ map.set('#Login', { Component: Login, isPublic: true });
 map.set('#SignUp', { Component: SignUp, isPublic: true });
 map.set('#category', { Component: CategoryList, isPublic: true });
 
-// map.set('#digital', { Component: DigitalList, isPublic: true });
-// map.set('#drawing', { Component: DrawingList, isPublic: true });
-// map.set('#painting', { Component: PaintingList, isPublic: true });
-// map.set('#photo', { Component: PhotoList, isPublic: true });
-// map.set('#sculpture', { Component: SculptureList, isPublic: true });
-// map.set('#print', { Component: PrintList, isPublic: true });
-
 
 const homepage = { Component: Home, isPublic: true };
 
