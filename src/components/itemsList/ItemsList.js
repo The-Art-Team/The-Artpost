@@ -16,7 +16,7 @@ export default class ItemsList {
     const dom = template.clone();
 
     const ul = dom.querySelector('ul');
-    
+
     const map = this.map = new Map();
 
     this.childAdded = this.list.on('child_added', data => {

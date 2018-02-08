@@ -16,24 +16,17 @@ export default class Item {
     this.itemsImages = itemsImages.child(key).limitToFirst(1);
   }
 
-  // add text
-  // update(item) {
-  //   this.caption.textContent = `${item.name}`;
-  //   this.image.alt = item.name;
-  // }
-
   render() {
     const dom = template.clone();
 
     dom.querySelector('a').href = `#items/${this.key}`;
-    this.caption = dom.querySelector('h2');
+    this.caption = dom.querySelector('h3');
     this.image = dom.querySelector('img');
 
     
     this.onValue = this.item.on('value', data => {
       const item = data.val();
       this.caption.textContent = item.name;
-      // this.update(data.val());
     });
 
     // add image use onvalue/data.val()
