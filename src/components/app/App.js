@@ -8,6 +8,7 @@ import Home from '../home/Home';
 import Account from '../account/Account';
 import Signin from '../account/Signin';
 import User from '../user/User';
+// import TrendingList from '../trending/TrendingList';
 import Results from '../results/Results';
 import { auth } from '../../services/firebase';
 import { removeChildren } from '../dom';
