@@ -1,6 +1,6 @@
 import html from './search-list.html';
 import './searchList.css';
-import Item from '../item/Item';
+// import Item from '../item/Item';
 import Template from '../../Template';
 import { db } from '../../../services/firebase';
 
