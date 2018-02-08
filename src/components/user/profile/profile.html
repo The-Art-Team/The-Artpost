@@ -1,2 +1,20 @@
-profile
+<form class="profile">
+    <label class="stuff" name="description">Bio</label>
+    <textarea name="bio" rows="10" cols="45"></textarea>
+    <label class="stuff" name="contact">Contact information</label>
+    <input required name="contact">
 
+    <label class="stuff" for="select-category">Categories</label>
+    <div class="checkbox" name="category" required>
+        <label><input type="checkbox" value="painting">Painting</label>
+        <label><input type="checkbox" value="photography">Photography</label>
+        <label><input type="checkbox" value="sculpture">Sculpture</label>
+        <label><input type="checkbox" value="print">Print</label>
+        <label><input type="checkbox" value="drawings">Drawing</label>
+        <label><input type="checkbox" value="digital">Digital Art</label>
+    </div>
+    <label class="stuff">
+        <button type="submit">Submit</button>
+    </label>
+    <p class="error"></p>
+    </form>

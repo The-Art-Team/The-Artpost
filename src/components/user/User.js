@@ -55,7 +55,7 @@ export default class User {
       const user = data.val();
       // console.log('test', user);
       if(user.isArtist) this.upload.classList.remove('upload-hide');
-      heading.textContent = 'hello' + user.name;
+      heading.textContent = 'hello ' + user.name;
     });
 
     this.setChildPage();
