@@ -1,5 +1,6 @@
 import html from './itemsList.html';
 import './itemslist.css';
+import Item from '../item/Item';
 import Template from '../Template';
 
 const template = new Template(html);
@@ -19,23 +20,23 @@ export default class ItemsList {
     const map = this.map = new Map();
 
     this.childAdded = this.list.on('child_added', data => {
-      const pet = document.createElement('li');
-      pet.textContent = data.key;
+      const item = new Item(data.key);
+      // item.textContent = data.key;
 
-      const petDom = pet;
+      const itemDom = item.render();
       map.set(data.key, {
-        component: pet,
-        nodes: [...petDom.childNodes]
+        component: item,
+        nodes: [...itemDom.childNodes]
       });
 
-      ul.appendChild(petDom);
+      ul.appendChild(itemDom);
     });
 
     this.childRemoved = this.list.on('child_removed', data => {
       const toRemove = map.get(data.key);
       map.delete(data.key);
       toRemove.nodes.forEach(node => node.remove());
-      // toRemove.component.unrender();
+      toRemove.component.unrender();
     });
 
     return dom;

@@ -2,16 +2,9 @@ import Template from '../Template';
 import html from './app.html';
 import './app.css';
 import Header from './header/Header';
-import Footer from './footer/Footer';
+// import Footer from './footer/Footer';
 import Auth from '../auth/Auth';
 import Home from '../home/Home';
-import TrendingList from '../category/trending/TrendingList';
-// import DigitalList from '../category/digital/DigitalList';
-// import DrawingList from '../category/drawing/DrawingList';
-// import PaintingList from '../category/painting/PaintingList';
-// import PhotoList from '../category/photo/PhotoList';
-// import PrintList from '../category/print/PrintList';
-// import SculptureList from '../category/sculpture/SculptureList';
 import Account from '../account/Account';
 import Signin from '../account/Signin';
 import User from '../user/User';
@@ -20,19 +13,22 @@ import { auth } from '../../services/firebase';
 import { removeChildren } from '../dom';
 import SignUp from '../account/signUp/SignUp';
 import Login from '../account/login/Login';
+import CategoryList from '../category/CategoryList';
 
 const template = new Template(html);
 
 // Hash Navigation
 const map = new Map();
 map.set('#auth', { Component: Auth, isPublic: true });
-map.set('#trending', { Component: TrendingList, isPublic: true });
+// map.set('#trending', { Component: TrendingList, isPublic: true });
 map.set('#account', { Component: Account, isPublic: true });
 map.set('#signin', { Component: Signin, isPublic: true });
 map.set('#user', { Component: User, isPublic: false });
 map.set('#results', { Component: Results, isPublic: true });
 map.set('#Login', { Component: Login, isPublic: true });
 map.set('#SignUp', { Component: SignUp, isPublic: true });
+map.set('#category', { Component: CategoryList, isPublic: true });
+
 // map.set('#digital', { Component: DigitalList, isPublic: true });
 // map.set('#drawing', { Component: DrawingList, isPublic: true });
 // map.set('#painting', { Component: PaintingList, isPublic: true });
@@ -69,7 +65,7 @@ export default class App {
     const routes = hash.split('/');
     const route = routes[0];
    
-    if(this.page && route === this.page.route) return;
+    if(this.page && route === this.page.route && route != '#category') return;
     if(this.page && this.page.component && this.page.component.unrender) this.page.component.unrender();
     removeChildren(this.main);
 
@@ -94,7 +90,7 @@ export default class App {
     const dom = template.clone();
     dom.querySelector('header').appendChild(new Header().render());
     this.main = dom.querySelector('main');
-    dom.querySelector('footer').appendChild(new Footer().render());
+    // dom.querySelector('footer').appendChild(new Footer().render());
 
     return dom;
   }

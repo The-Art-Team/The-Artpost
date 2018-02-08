@@ -16,26 +16,7 @@ export default class MyArt {
 
   }
 
-  // removeItem() {
-  //   if(!confirm('Are you sure you want to remove?')) return;
-    
-  //   const storage = itemsImageStorage.child(this.key);
-  //   storage.delete()
-  //     .catch(err => {
-  //       if(err.code === 'storage/object-not-found') return;
-  //       console.error(err);
-  //     });
 
-  //   const updates = {
-  //     [items.child(this.key).path]: null,
-  //     [itemsImages.child(this.key).path]: null,
-  //     [itemsByUser.child(auth.currentUser.uid).child(this.key).path]: null
-  //   };  
-
-  //   db.ref().update(updates)
-  //     .then(() => window.location.hash = '#user/myart')
-  //     .catch(console.error);
-  // }
   
   render() {
     const dom = template.clone();
