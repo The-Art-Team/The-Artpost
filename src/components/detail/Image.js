@@ -1,7 +1,7 @@
 import html from './image.html';
 import Template from '../Template';
 import './image.css';
-// import { getUrl } from '../../services/cloudinary';
+import { getUrl } from '../../services/cloudinary';
 import { db } from '../../services/firebase';
 
 
@@ -25,27 +25,12 @@ export default class Image {
     this.remove = dom.querySelector('button.remove');
 
     this.onImageValue = this.itemsImages.on('child_added', data => {
-      this.image.src = data.val();
+      // this.image.src = data.val();
       // use for cloudinary below
-      // this.image.src = getUrl(data.val(), 'c_fill,w_500,h_500');
+      this.image.src = getUrl(data.val(), 'ar_3:2,c_fill,w_800');
     });
 
     // dom.querySelector('img').src = getUrl(this.src, 'ar_3:2,c_fill,w_500');
-    
-    // const removeButton = dom.querySelector('button');
-    
-    // if(isOwner) {
-
-    // }
-
-    // if(this.onRemove) {
-    //   removeButton.addEventListener('click', () => {
-    //     this.onRemove();
-    //   });
-    // }
-    // else {
-    //   removeButton.remove();
-    // }
 
     return dom;
   }

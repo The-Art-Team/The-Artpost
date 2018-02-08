@@ -3,3 +3,25 @@
 .category-list li {
     list-style-type: none;
 }
+
+.slider-wrap {
+    position: relative;
+}
+
+.view-title {
+    position: absolute;
+    left: 5%;
+    transform: translateX(-50%);
+    top: 80%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(233, 255, 255, 0.7);
+    padding: 2rem;
+    font-size: 1.7rem;
+    transition: 0.3s ease all;
+    &:hover {
+        background-color: rgba(233, 35, 35, 0.9);
+        color: white;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,21 @@
+.item-detail {
+  display: flex;
+}
+
+.item-text {
+  margin: 2rem;
+}
+
+.item-h2 {
+  margin: 2rem 0 0;
+}
+
+.bread {
+  margin: 1rem 0 3rem;
+}
+
+@media only screen and (max-width: 750px) {
+  .item-detail {
+    flex-direction: column;
+  }
+}

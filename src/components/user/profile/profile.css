@@ -20,7 +20,7 @@ textarea {
     max-width: 100%;
 }
 
-@media (min-width: 650px) {
+@media (min-width: 800px) {
     .profile {
         display: grid;
         margin: 1em 2.5em 1em 1em;

@@ -47,6 +47,7 @@ export default class ItemDetail {
     const dom = template.clone();
 
     const header = dom.querySelector('h2');
+    const bread = dom.querySelector('h5');
     const text = dom.querySelector('p');
     const imageSection = dom.querySelector('section.images');
     const removeButton = dom.querySelector('button.remove');
@@ -56,6 +57,8 @@ export default class ItemDetail {
       const item = data.val();
       // we might have deleted:
       if(!item) return;
+
+      bread.textContent = `home > ${item.category} > ${item.name}`;
 
       header.textContent = `${item.name}`;
       text.textContent = `${item.description}`;

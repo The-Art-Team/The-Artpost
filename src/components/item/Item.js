@@ -3,7 +3,7 @@ import html from './item.html';
 import './item.css';
 // import Image from './Image';
 import { db } from '../../services/firebase';
-// import { getUrl } from '../../../services/cloudinary';
+import { getUrl } from '../../services/cloudinary';
 
 const template = new Template(html);
 const items = db.ref('items');
@@ -31,9 +31,9 @@ export default class Item {
 
     // add image use onvalue/data.val()
     this.onImageValue = this.itemsImages.on('child_added', data => {
-      this.image.src = data.val();
+      // this.image.src = data.val();
       // use for cloudinary below
-      // this.image.src = getUrl(data.val(), 'c_fill,w_500,h_500');
+      this.image.src = getUrl(data.val(), 'c_fill,w_500,h_500');
     });
 
     // this.update(this.item);
