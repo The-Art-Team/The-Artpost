@@ -56,8 +56,8 @@ export default class User {
     users.child(auth.currentUser.uid).once('value', data => {
       const user = data.val();
       // console.log('test', user);
-      if(user.isArtist) this.add.classList.remove('add-hide');
-      heading.textContent = 'hello' + user.name;
+      if(user.isArtist) this.upload.classList.remove('upload-hide');
+      heading.textContent = 'hello ' + user.name;
     });
 
     this.setChildPage();
