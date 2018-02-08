@@ -49,7 +49,7 @@ nav {
 }
 
 .image-logo {
-  width: 50%;
+  width: 9rem;
 }
 
 .ulist li:hover .submenu {
@@ -66,7 +66,7 @@ nav {
   background: white;
   padding: 0 2rem;
   margin: 3rem 0 0 -2.5rem;
-  box-shadow: 10px 10px 25px 0px rgba(0,0,0,0.19);
+  box-shadow: 7px 7px 15px 0px rgba(0,0,0,0.10);
 }
 
 .submenu li {

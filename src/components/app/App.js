@@ -8,7 +8,7 @@ import Home from '../home/Home';
 import Account from '../account/Account';
 import Signin from '../account/Signin';
 import User from '../user/User';
-// import TrendingList from '../trending/TrendingList';
+import TrendingList from '../trending/TrendingList';
 import Results from '../results/Results';
 import { auth } from '../../services/firebase';
 import { removeChildren } from '../dom';
@@ -21,7 +21,7 @@ const template = new Template(html);
 // Hash Navigation
 const map = new Map();
 map.set('#auth', { Component: Auth, isPublic: true });
-// map.set('#trending', { Component: TrendingList, isPublic: true });
+map.set('#trending', { Component: TrendingList, isPublic: true });
 map.set('#account', { Component: Account, isPublic: true });
 map.set('#signin', { Component: Signin, isPublic: true });
 map.set('#user', { Component: User, isPublic: false });
