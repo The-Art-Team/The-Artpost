@@ -3,3 +3,20 @@
 .category-list li {
     list-style-type: none;
 }
+
+.slider-wrap {
+    position: relative;
+}
+
+.view-title {
+    position: absolute;
+    left: 5%;
+    transform: translateX(-50%);
+    top: 80%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255,255,255,0.8);
+    padding: 2rem;
+    width: 40%;
+    font-size: 1.7rem;
+}
