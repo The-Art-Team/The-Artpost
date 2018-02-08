@@ -58,7 +58,7 @@ export default class ItemDetail {
       // we might have deleted:
       if(!item) return;
 
-      bread.textContent = `home > ${item.category} > ${item.name}`;
+      bread.innerHTML = `<a href="#home">home</a> > <a href="#category/${item.category}">${item.category}</a> > <a href="#items/${this.key}">${item.name}</a>`;
 
       header.textContent = `${item.name}`;
       text.textContent = `${item.description}`;

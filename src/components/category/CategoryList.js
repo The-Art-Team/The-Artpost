@@ -18,15 +18,19 @@ export default class CategoryList {
     this.categoryItems = items.orderByChild('category').equalTo(category);
     this.category = category;
     console.log(this.category);
+    
   }
   
   render() {
     const dom = template.clone();
 
     const title = dom.querySelector('h2');
-
-    
     title.textContent = this.category;
+
+    const bread = dom.querySelector('h5');
+    bread.innerHTML = `<a href="#home">home</a> > <a href="#category/${this.category}">${this.category}</a>`;
+
+
 
     this.list = new ItemsList(this.categoryItems);
     dom.querySelector('article').appendChild(this.list.render());
