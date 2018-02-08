@@ -1,14 +1,13 @@
-import Template from '../../Template';
+import Template from '../Template';
 import html from './item-detail.html';
 import './item-detail.css';
 import { auth, db, storage } from '../../services/firebase';
-import { debug } from 'util';
 
 const template = new Template(html);
 const items = db.ref('items');
-const itemsByUser = db.ref('itemsByUser');
-const itemsImages = db.ref('items-images');
-const itemsImageStorage = storage.ref('items');
+// const itemsByUser = db.ref('itemsByUser');
+// const itemsImages = db.ref('items-images');
+// const itemsImageStorage = storage.ref('items');
 
 export default class ItemDetail {
 
@@ -36,6 +35,8 @@ export default class ItemDetail {
       this.images = new Image(this.key, isOwner);
       imageSection.append(this.images.render());
 
+    
+    });
     return dom;
   }
 

@@ -10,6 +10,7 @@ import Signin from '../account/Signin';
 import User from '../user/User';
 import TrendingList from '../trending/TrendingList';
 import Results from '../results/Results';
+import Items from '../detail/Items';
 import { auth } from '../../services/firebase';
 import { removeChildren } from '../dom';
 import SignUp from '../account/signUp/SignUp';
@@ -29,6 +30,8 @@ map.set('#results', { Component: Results, isPublic: true });
 map.set('#Login', { Component: Login, isPublic: true });
 map.set('#SignUp', { Component: SignUp, isPublic: true });
 map.set('#category', { Component: CategoryList, isPublic: true });
+map.set('#items', { Component: Items, isPublic: true });
+
 
 
 const homepage = { Component: Home, isPublic: true };
