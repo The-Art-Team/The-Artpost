@@ -1,9 +1,8 @@
 import html from './header.html';
 import './header.css';
-import SearchDrop from './search/SearchDrop';
 import Account from '../../account/Account';
 // import Results from '../../results/Results';
-import { auth, db } from '../../../services/firebase';
+import { auth } from '../../../services/firebase';
 import Template from '../../Template';
 import { removeChildren } from '../../dom';
 
@@ -16,8 +15,6 @@ export default class Header {
 
   render() {
     const dom = template.clone();
-
-    dom.querySelector('#search-drop').appendChild(new SearchDrop().render());
 
     const userItem = dom.querySelector('.user-nav');
     auth.onAuthStateChanged(user => {

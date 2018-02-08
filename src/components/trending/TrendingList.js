@@ -1,9 +1,9 @@
 import html from './trending-list.html';
 import './trending.css';
-import ItemsList from '../../itemsList/ItemsList';
+import ItemsList from '../itemsList/ItemsList';
 // import Trending from './Trending';
-import Template from '../../Template';
-import { db } from '../../../services/firebase';
+import Template from '../Template';
+import { db } from '../../services/firebase';
 
 const template = new Template(html);
 const items = db.ref('items');
