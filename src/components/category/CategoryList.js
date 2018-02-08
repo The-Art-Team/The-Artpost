@@ -1,6 +1,6 @@
 import Template from '../Template';
 import html from './category-list.html';
-// import './myart.css';
+import './category-list.css';
 import ItemsList from '../itemsList/ItemsList';
 import { db } from '../../services/firebase';
 
