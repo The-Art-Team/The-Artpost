@@ -1,14 +1,14 @@
-<div>
-  <h3>Sign Up</h3>
+<div class="form-contain">
+  
     <form class="sign-up">
+        <h3>Sign Up</h3>
       <fieldset>
         <legend>Sign Up</legend>
 
-        <label>Are you an artist?
-        <input type="radio" name="check" value="yes"> Yes
-        <input type="radio" name="check" value="no"> No
-        </label>
-
+        <label>Are you an artist?</label>
+        <input class="radio" type="radio" name="check" value="yes"> <span class="radio-text">Yes</span>
+        <input class="radio" type="radio" name="check" value="no"> <span class="radio-text">No</span>
+        
         <label for="name">Name</label>
           <input name="name" type="text" placeholder="Name">
         
@@ -16,7 +16,7 @@
           <input name="email" type="text" placeholder="Email">
         
         <label for="password">Password</label>
-          <input name="password" type="text" placeholder="Password">
+          <input name="password" type="password" placeholder="Password">
      
         <button type="submit" class="submit">Sign-up</button>
       </fieldset>

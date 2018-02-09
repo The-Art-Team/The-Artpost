@@ -183,6 +183,7 @@ input.checkbox {
     right: 3rem;
     opacity: 0;
     cursor: pointer;
+    width: 25px;
   }
   
   input:checked ~ #burger span {

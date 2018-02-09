@@ -61,15 +61,15 @@ img {
 
 a {
   text-decoration: none;
-  color: $link;
+  color: $black;
   transition: 0.3s ease all;
   padding: 0 0 3px;
   border-bottom: 3px solid $white;
 }
 
 a:hover {
-  color: $link;
-  border-bottom: 3px solid $link;
+  color: $black;
+  border-bottom: 3px solid $accent;
 }
 
 /*  -------- Media Queries ------- */

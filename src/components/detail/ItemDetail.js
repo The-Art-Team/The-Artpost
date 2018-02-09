@@ -16,8 +16,6 @@ const users = db.ref('users');
 export default class ItemDetail {
 
   constructor(key) {
-    // const routes = window.location.hash.split('/');
-    // this.key = routes[1] || '';
     this.key = key;
     this.item = items.child(key);
     this.users = users;
@@ -80,7 +78,8 @@ export default class ItemDetail {
         });
 
         this.onFavoriteValue = this.favoriteRef.on('value', (data) => {
-          this.favHeader.textContent = data.val() ? 'remove favorite' : 'add to favorite';
+          // this.favHeader.textContent = data.val() ? 'remove favorite' : 'add to favorite';
+          this.favHeader.innerHTML = data.val() ? 'remove favorite' : 'add to favorite';
         });
       } else {
         this.favWrapper.classList.toggle('hideFav');
