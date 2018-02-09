@@ -3,6 +3,7 @@
 .center-wrap {
   display: flex;
   justify-content: center;
+  margin: 2rem 0 0;
 }
 
 .account-nav {
@@ -60,6 +61,14 @@ input, textarea{
   margin: 0 0 0.4rem;
   font-size: 100%;
   background: white;
+}
+
+input.radio {
+  width: 10%;
+}
+
+.radio-text {
+  color: black;
 }
 
 input:-webkit-autofill {
