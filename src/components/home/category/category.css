@@ -16,7 +16,7 @@ ul {
         grid-row-gap: 1rem;
     h2 {
         text-align: center;
-        z-index: 50;
+        z-index: 0;
     }
 }
 

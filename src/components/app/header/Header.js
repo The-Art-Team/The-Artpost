@@ -16,6 +16,17 @@ export default class Header {
   render() {
     const dom = template.clone();
 
+    this.nav = dom.querySelector('nav#main-menu');
+    const checkbox = dom.querySelector('input');
+    this.nav.addEventListener('click', () => {
+      checkbox.click(
+        checkbox.addEventListener('change', event => {
+          event.preventDefault();
+        })
+      );
+    });
+
+
     const userItem = dom.querySelector('.user-nav');
     auth.onAuthStateChanged(user => {
       let child = null;
