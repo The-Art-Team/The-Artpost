@@ -4,6 +4,7 @@ import './add.css';
 // import { removeChildren } from '../dom';
 import { db, auth, storage } from '../../../services/firebase';
 
+
 const template = new Template(html);
 const items = db.ref('items');
 const itemsByUser = db.ref('itemsByUser');
