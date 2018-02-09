@@ -1,6 +1,8 @@
 import Template from '../Template';
 import html from './item-detail.html';
 import Image from './Image';
+import heart from './heart.png';
+import heartRed from './heart-red.png';
 
 import './item-detail.css';
 import { auth, db, storage } from '../../services/firebase';
@@ -62,6 +64,7 @@ export default class ItemDetail {
     const fav = dom.querySelector('.fav-flex');
     const byArtist = dom.querySelector('.by-artist');
     this.favWrapper = dom.querySelector('.favwrapper');
+    this.heart = dom.querySelector('.heart');
 
     this.onValue = this.item.on('value', data => {
       const item = data.val();
@@ -80,6 +83,7 @@ export default class ItemDetail {
         this.onFavoriteValue = this.favoriteRef.on('value', (data) => {
           // this.favHeader.textContent = data.val() ? 'remove favorite' : 'add to favorite';
           this.favHeader.innerHTML = data.val() ? '<span class="red">remove favorite</span>' : 'add to favorite';
+          this.heart.src = data.val() ? heartRed : heart;
         });
       } else {
         this.favWrapper.classList.toggle('hideFav');
