@@ -49,3 +49,9 @@
 
 
 
+@media (max-width:600px) {
+    .featured-text {
+        width: 45%;
+        margin: 3rem auto 0;
+    }
+}

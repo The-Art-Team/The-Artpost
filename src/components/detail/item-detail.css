@@ -47,6 +47,19 @@
   display: none;
 }
 
+.remove {
+  margin: 3rem 0 0;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: $accent;
+  color: $white;
+  border: 0px;
+  transition: 0.3s ease all;
+  &:hover {
+    background-color: black;
+  }
+}
+
 @media only screen and (max-width: 750px) {
   .item-detail {
     flex-direction: column;
