@@ -16,8 +16,6 @@ const users = db.ref('users');
 export default class ItemDetail {
 
   constructor(key) {
-    // const routes = window.location.hash.split('/');
-    // this.key = routes[1] || '';
     this.key = key;
     this.item = items.child(key);
     this.users = users;
