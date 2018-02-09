@@ -1,27 +1,32 @@
-<form class="add-art">
-  <label name="title">Art Title</label>
-    <input required name="name">
+<article class="maxwidth-wrap">
+  <h4 class="user-page-title">Favorites</h4>
+    
+  <form class="add-art">
+    <label name="title">Art Title</label>
+      <input required name="name">
+    
+    <label name="title">Art Description</label>
+      <textarea required name="description"></textarea>
+    
+    <label for="select-category">Category</label>
+      <select name="category" required>
+        <option value="painting">Painting</option>
+        <option value="photography">Photography</option>
+        <option value="sculpture">Sculpture</option>
+        <option value="print">Print</option>
+        <option value="drawings">Drawing</option>
+        <option value="digital-art">Digital Art</option>
+      </select>
   
-  <label name="title">Art Description</label>
-    <textarea required name="description"></textarea>
-  
-  <label for="select-category">Category</label>
-    <select name="category" required>
-      <option value="painting">Painting</option>
-      <option value="photography">Photography</option>
-      <option value="sculpture">Sculpture</option>
-      <option value="print">Print</option>
-      <option value="drawings">Drawing</option>
-      <option value="digital-art">Digital Art</option>
-    </select>
- 
-  <label>Upload art:</label>
-  <input name="upload" type="file">
+    <label>Upload art:</label>
+    <input name="upload" type="file">
 
-  <label>
-    <button type="button">Cancel</button>
-    <button type="submit">Add</button>
-  </label>
+    <label>
+      <button type="button">Cancel</button>
+      <button type="submit">Add</button>
+    </label>
 
-  <p class="error"></p>
-</form>
+    <p class="error"></p>
+  </form>
+
+</article>

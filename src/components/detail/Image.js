@@ -25,12 +25,8 @@ export default class Image {
     this.remove = dom.querySelector('button.remove');
 
     this.onImageValue = this.itemsImages.on('child_added', data => {
-      // this.image.src = data.val();
-      // use for cloudinary below
-      this.image.src = getUrl(data.val(), 'ar_3:2,c_fill,w_800');
+      this.image.src = getUrl(data.val(), 'ar_3:2,c_fill,g_face,w_600,q_auto:best');
     });
-
-    // dom.querySelector('img').src = getUrl(this.src, 'ar_3:2,c_fill,w_500');
 
     return dom;
   }

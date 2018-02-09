@@ -20,6 +20,7 @@ export default class ItemDetail {
     // this.key = routes[1] || '';
     this.key = key;
     this.item = items.child(key);
+    this.users = users;
     if(auth.currentUser) {
       this.currentUser = true;
       this.favoriteRef = users.child(auth.currentUser.uid).child('favorites').child(this.key);
@@ -61,6 +62,7 @@ export default class ItemDetail {
     const imageSection = dom.querySelector('section.images');
     const removeButton = dom.querySelector('button.remove');
     const fav = dom.querySelector('.fav-flex');
+    // const byArtist = dom.querySelector('.by-artist');
     this.favWrapper = dom.querySelector('.favwrapper');
 
     this.onValue = this.item.on('value', data => {
@@ -85,9 +87,10 @@ export default class ItemDetail {
       }
 
 
-      bread.innerHTML = `<a href="#home">home</a> > <a href="#category/${item.category}">${item.category}</a> > <a href="#items/${this.key}">${item.name}</a>`;
+      bread.innerHTML = `<a href="#home">home </a> > <a href="#category/${item.category}"> ${item.category} </a> > <a href="#items/${this.key}"> ${item.name}</a>`;
       header.textContent = `${item.name}`;
       text.textContent = `${item.description}`;
+      // byArtist.textContent = `${users.name}`;
 
       const isOwner = item.owner === this.uid;
       this.images = new Image(this.key, isOwner);

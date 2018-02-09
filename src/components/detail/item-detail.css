@@ -12,6 +12,10 @@
 
 .bread {
   margin: 1rem 0 3rem;
+  text-transform: uppercase;
+  color: black;
+  letter-spacing: 0.1px;
+  font-size: 0.9rem;
 }
 
 .heart {
@@ -27,6 +31,10 @@
 
 .fav {
   padding: 0;
+  transition: 0.3s ease all;
+  &:hover {
+    color: red;
+  }
 }
 
 .hideFav {
@@ -36,6 +44,10 @@
 @media only screen and (max-width: 750px) {
   .item-detail {
     flex-direction: column;
+  }
+
+  .item-text {
+    margin: 2rem 0;
   }
 }
 

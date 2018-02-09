@@ -1,6 +1,6 @@
 /* variables */
 
-$accent: #c95151;
+$accent: #b53232;
 $link: #0d415f;
 
 $lightgray: #eeeeee;
@@ -13,5 +13,5 @@ $maxViewportSize: 1280px;
 $padding: 2rem;
 
 section {
-  color: #c95151;
+  color: #b53232;
 }

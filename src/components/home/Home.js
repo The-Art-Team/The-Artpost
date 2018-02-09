@@ -1,5 +1,6 @@
 import html from './home.html';
 import './home.css';
+import './slide.css';
 import Slider from './slider/Slider';
 import Category from './category/Category';
 import Template from '../Template';
