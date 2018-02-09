@@ -87,7 +87,7 @@ export default class ItemDetail {
       }
 
 
-      bread.innerHTML = `<a href="#home">home</a> > <a href="#category/${item.category}">${item.category}</a> > <a href="#items/${this.key}">${item.name}</a>`;
+      bread.innerHTML = `<a href="#home">home </a> > <a href="#category/${item.category}"> ${item.category} </a> > <a href="#items/${this.key}"> ${item.name}</a>`;
       header.textContent = `${item.name}`;
       text.textContent = `${item.description}`;
       // byArtist.textContent = `${users.name}`;
