@@ -12,33 +12,16 @@ const template = new Template(html);
 export default class Auth {
   constructor() {
     const routes = window.location.hash.split('/');
+    console.log(routes, 'routes');
     this.redirect = decodeURIComponent(routes[1] || '#');
   }
 
   render() {
     const dom = template.clone();
 
-
-
-    // setTimeout(() => {
-    //   const { origin, pathname } = window.location;
-    //   ui.start('#auth-container', {
-    //     signInSuccessUrl: `${origin}${pathname}${this.redirect}`,
-    //     signInOptions: [
-    //       providers.EmailAuthProvider.PROVIDER_ID, 
-    //       providers.GoogleAuthProvider.PROVIDER_ID,
-    //     ],
-    //     'credentialHelper': firebaseui.auth.CredentialHelper.NONE
-    //   });
-    // });
-
-    // window.location.hash = '#user';
-
     return dom;
-
   }
 
   unrender() {
-
   }
 }

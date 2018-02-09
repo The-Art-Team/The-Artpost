@@ -29,8 +29,13 @@
   padding: 0;
 }
 
+.hideFav {
+  display: none;
+}
+
 @media only screen and (max-width: 750px) {
   .item-detail {
     flex-direction: column;
   }
 }
+
