@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 /* eslint-env node */
-=======
 
->>>>>>> 908a8739adb37f2a70e6d753fff4684b9c44b6b3
-require('dotenv').config({ path: '.env.prod' });
+require('dotenv').config({ path: '.env' });
 const HtmlPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -14,11 +11,11 @@ module.exports = {
   entry: './src/main.js',
   output: {
     filename: '[hash].bundle.js',
-    path: `${__dirname}/docs`,
+    path: `${__dirname}/build`,
   },
   devtool: 'source-map',
   plugins: [
-    new CleanWebpackPlugin(`${__dirname}/docs`), 
+    new CleanWebpackPlugin(`${__dirname}/build`), 
     new webpack.DefinePlugin({
       'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
       'process.env.AUTH_DOMAIN': JSON.stringify(process.env.AUTH_DOMAIN),
