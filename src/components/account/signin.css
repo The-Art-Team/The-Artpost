@@ -6,6 +6,10 @@
   margin: 2rem 0 0;
 }
 
+.form-contain {
+  flex-grow: 1;
+}
+
 .account-nav {
   display: flex;
   margin: 0rem 0 2rem;
@@ -30,7 +34,7 @@
 form {
   width: 100%;
   max-width: 600px;
-  margin: 0;
+  margin: 0 auto;
 }
 
 fieldset legend {
@@ -64,7 +68,7 @@ input, textarea{
 }
 
 input.radio {
-  width: 10%;
+  width: 5%;
 }
 
 .radio-text {
@@ -91,6 +95,6 @@ button[type=submit] {
 }
 
 button[type=submit]:hover {
-  background: #3b5243;
+  background: rgb(49, 49, 49);
 }
 
