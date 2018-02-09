@@ -18,7 +18,7 @@ export default class ItemDetail {
   constructor(key) {
     this.key = key;
     this.item = items.child(key);
-    this.users = users;
+    this.artist = users;
     if(auth.currentUser) {
       this.currentUser = true;
       this.favoriteRef = users.child(auth.currentUser.uid).child('favorites').child(this.key);
@@ -60,7 +60,7 @@ export default class ItemDetail {
     const imageSection = dom.querySelector('section.images');
     const removeButton = dom.querySelector('button.remove');
     const fav = dom.querySelector('.fav-flex');
-    // const byArtist = dom.querySelector('.by-artist');
+    const byArtist = dom.querySelector('.by-artist');
     this.favWrapper = dom.querySelector('.favwrapper');
 
     this.onValue = this.item.on('value', data => {
@@ -79,7 +79,7 @@ export default class ItemDetail {
 
         this.onFavoriteValue = this.favoriteRef.on('value', (data) => {
           // this.favHeader.textContent = data.val() ? 'remove favorite' : 'add to favorite';
-          this.favHeader.innerHTML = data.val() ? 'remove favorite' : 'add to favorite';
+          this.favHeader.innerHTML = data.val() ? '<span class="red">remove favorite</span>' : 'add to favorite';
         });
       } else {
         this.favWrapper.classList.toggle('hideFav');
@@ -89,7 +89,11 @@ export default class ItemDetail {
       bread.innerHTML = `<a href="#home">home </a> > <a href="#category/${item.category}"> ${item.category} </a> > <a href="#items/${this.key}"> ${item.name}</a>`;
       header.textContent = `${item.name}`;
       text.textContent = `${item.description}`;
-      // byArtist.textContent = `${users.name}`;
+
+      
+      users.child(item.owner).child('name').once('value', (data) => {
+        byArtist.textContent = `Created by: ${data.val()}`;
+      });
 
       const isOwner = item.owner === this.uid;
       this.images = new Image(this.key, isOwner);
