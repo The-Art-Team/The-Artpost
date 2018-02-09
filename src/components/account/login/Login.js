@@ -18,7 +18,7 @@ export default class Login {
         console.log('success');
       })
       .then(() => {
-        window.location.hash = '#user';
+        window.location.hash = '#';
       })
       .catch((err) => {
         console.log(err);
