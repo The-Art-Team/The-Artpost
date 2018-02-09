@@ -20,7 +20,7 @@ export default class Image {
     this.image = dom.querySelector('img');
     this.image.alt = this.src;
 
-    dom.querySelector('img').src = getUrl(this.src, 'c_fill,w_500,h_500');
+    dom.querySelector('img').src = getUrl(this.src, 'g_face,c_fill,w_500,h_500');
 
     return dom;
   }

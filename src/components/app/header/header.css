@@ -26,7 +26,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  margin: 0;
+  margin: 1rem 0;
   li {
     padding: 0 1rem;
     a {
@@ -100,6 +100,11 @@ input.checkbox {
 @media only screen and (max-width: 640px) {
   .header-flex {
     /* flex-direction: column; */
+  }
+
+  button.sign-out {
+    margin: 2rem 1rem 0;
+    padding: 1rem 3rem;
   }
 
   #header section.maxwidth-wrap {
