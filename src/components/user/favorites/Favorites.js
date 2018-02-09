@@ -17,7 +17,7 @@ export default class Favorites {
   render() {
     const dom = template.clone();
 
-    this.list = new ItemsList(users.child.key.favorites(auth.currentUser.uid));
+    this.list = new ItemsList(users.child(auth.currentUser.uid).child('favorites'));
     dom.querySelector('article').appendChild(this.list.render());
 
     return dom;

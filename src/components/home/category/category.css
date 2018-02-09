@@ -75,6 +75,5 @@ ul {
         grid-template-columns: repeat(3, 1fr);
         grid-column-gap: 3em;
         grid-row-gap: 3rem;
-        margin: 0 1em;
     }
 }
