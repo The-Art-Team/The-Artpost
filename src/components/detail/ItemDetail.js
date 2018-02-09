@@ -80,7 +80,8 @@ export default class ItemDetail {
         });
 
         this.onFavoriteValue = this.favoriteRef.on('value', (data) => {
-          this.favHeader.textContent = data.val() ? 'remove favorite' : 'add to favorite';
+          // this.favHeader.textContent = data.val() ? 'remove favorite' : 'add to favorite';
+          this.favHeader.innerHTML = data.val() ? 'remove favorite' : 'add to favorite';
         });
       } else {
         this.favWrapper.classList.toggle('hideFav');
