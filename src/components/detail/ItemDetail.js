@@ -10,6 +10,8 @@ const items = db.ref('items');
 const itemsByUser = db.ref('itemsByUser');
 const itemsImages = db.ref('items-images');
 const itemsImageStorage = storage.ref('items');
+const users = db.ref('users');
+
 
 export default class ItemDetail {
 
@@ -18,6 +20,7 @@ export default class ItemDetail {
     // this.key = routes[1] || '';
     this.key = key;
     this.item = items.child(key);
+    this.favoriteRef = users.child(auth.currentUser.uid).child('favorites').child(this.key);
   }
 
   removeItem() {
@@ -59,7 +62,14 @@ export default class ItemDetail {
       if(!item) return;
 
       fav.addEventListener('click', () => {
-        
+        this.favoriteRef.transaction(current => {
+          return current ? null : true ;
+        });
+      });
+
+      const favHeader = fav.querySelector('.fav');
+      this.onFavoriteValue = this.favoriteRef.on('value', (data) => {
+        favHeader.textContent = data.val() ? 'remove favorite' : 'add to favorite';
       });
 
       bread.innerHTML = `<a href="#home">home</a> > <a href="#category/${item.category}">${item.category}</a> > <a href="#items/${this.key}">${item.name}</a>`;
@@ -84,6 +94,7 @@ export default class ItemDetail {
   }
 
   unrender() {
+    this.favoriteRef.off('value', this.onFavoriteValue);
     items.child(this.key).off('value', this.onValue);
     this.images.unrender();
   }
