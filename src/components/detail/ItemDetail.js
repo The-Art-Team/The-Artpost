@@ -10,6 +10,8 @@ const items = db.ref('items');
 const itemsByUser = db.ref('itemsByUser');
 const itemsImages = db.ref('items-images');
 const itemsImageStorage = storage.ref('items');
+const users = db.ref('users');
+
 
 export default class ItemDetail {
 
@@ -18,6 +20,7 @@ export default class ItemDetail {
     // this.key = routes[1] || '';
     this.key = key;
     this.item = items.child(key);
+    this.favoriteRef = users.child(auth.currentUser.uid).child('favorites').child(this.key);
   }
 
   removeItem() {
@@ -51,20 +54,29 @@ export default class ItemDetail {
     const text = dom.querySelector('p');
     const imageSection = dom.querySelector('section.images');
     const removeButton = dom.querySelector('button.remove');
-    
+    const fav = dom.querySelector('.fav-flex');
 
     this.onValue = this.item.on('value', data => {
       const item = data.val();
       // we might have deleted:
       if(!item) return;
 
-      bread.textContent = `home > ${item.category} > ${item.name}`;
+      fav.addEventListener('click', () => {
+        this.favoriteRef.transaction(current => {
+          return current ? null : true ;
+        });
+      });
 
+      const favHeader = fav.querySelector('.fav');
+      this.onFavoriteValue = this.favoriteRef.on('value', (data) => {
+        favHeader.textContent = data.val() ? 'remove favorite' : 'add to favorite';
+      });
+
+      bread.innerHTML = `<a href="#home">home</a> > <a href="#category/${item.category}">${item.category}</a> > <a href="#items/${this.key}">${item.name}</a>`;
       header.textContent = `${item.name}`;
       text.textContent = `${item.description}`;
 
       const isOwner = item.owner === auth.currentUser.uid;
-
       this.images = new Image(this.key, isOwner);
       imageSection.append(this.images.render());
 
@@ -82,6 +94,7 @@ export default class ItemDetail {
   }
 
   unrender() {
+    this.favoriteRef.off('value', this.onFavoriteValue);
     items.child(this.key).off('value', this.onValue);
     this.images.unrender();
   }

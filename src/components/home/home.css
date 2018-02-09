@@ -12,16 +12,17 @@
     position: absolute;
     left: 5%;
     transform: translateX(-50%);
-    top: 80%;
+    top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    background-color: rgba(233, 255, 255, 0.7);
+    background-color: rgba(233, 255, 255, 0.5);
     padding: 2rem;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     transition: 0.3s ease all;
     &:hover {
-        background-color: rgba(233, 35, 35, 0.9);
-        color: white;
+        background-color: rgba(233, 255, 255, 0.9);
+        color: red;
         cursor: pointer;
+        box-shadow: 7px 7px 15px 0px rgba(0,0,0,0.50);
     }
 }

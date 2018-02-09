@@ -2,3 +2,11 @@
   margin: 1rem 0 0;
   font-size: 1.5rem;
 }
+
+.item-li {
+  transition: 0.3s ease all;
+}
+
+.item-li:hover {
+  transform: scale(0.95);
+}
