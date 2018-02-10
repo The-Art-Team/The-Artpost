@@ -1,8 +1,4 @@
 @keyframes pageSlide {
-  /* 0% {
-    opacity: .0;
-    transform: translate(0, 100%);
-  } */
   0% {
     opacity: 0;
     transform: translate(0, 0%);

@@ -1,18 +1,12 @@
 import Template from '../Template';
 import html from './auth.html';
-import { auth, providers } from '../../services/firebase';
-import firebaseui from 'firebaseui';
-import 'firebaseui/dist/firebaseui.css';
-
-
-const ui = new firebaseui.auth.AuthUI(auth);
+import { auth } from '../../services/firebase';
 
 const template = new Template(html);
 
 export default class Auth {
   constructor() {
     const routes = window.location.hash.split('/');
-    console.log(routes, 'routes');
     this.redirect = decodeURIComponent(routes[1] || '#');
   }
 

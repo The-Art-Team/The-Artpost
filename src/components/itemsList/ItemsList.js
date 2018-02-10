@@ -5,7 +5,6 @@ import Template from '../Template';
 
 const template = new Template(html);
 
-
 export default class ItemsList {
 
   constructor(list) {
@@ -21,7 +20,6 @@ export default class ItemsList {
 
     this.childAdded = this.list.on('child_added', data => {
       const item = new Item(data.key);
-      // item.textContent = data.key;
 
       const itemDom = item.render();
       map.set(data.key, {

@@ -21,6 +21,5 @@ export default class Home {
   }
 
   unrender() {
-
   }
 }
