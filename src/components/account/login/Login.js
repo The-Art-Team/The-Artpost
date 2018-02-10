@@ -30,6 +30,15 @@ export default class Login {
       this.handleSubmit(event.target);
     });
 
+    const form = dom.querySelector('form');
+    this.submit = dom.querySelector('button[type=submit');
+    form.addEventListener('blur', event => {
+      const element = event.srcElement;
+      if(element.type === 'submit' || element.type === 'button') return;
+      element.nextElementSibling.textContent = element.validationMessage;
+      this.submit.disabled = !form.checkValidity();
+    }, true);
+
     return dom;
   }
 }

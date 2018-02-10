@@ -4,12 +4,15 @@
         <fieldset>
           <legend>Login</legend>
 
-          <label for="email">Email</label>
-          <input id="email" type="text" placeholder="Email">
+          <label for="email"><span class="require">* </span>Email</label>
+          <input id="email" type="text" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" 
+          title="Please provde an email in the form of you@somedomain.sometld" placeholder="Email">
+          <p class="error"></p>
 
-          <label for="password">Password</label>
+          <label for="password"><span class="require">* </span>Password</label>
           <input id="password" type="password" placeholder="Password">
-          
+          <p class="error"></p>
+
         </fieldset>
         <button type="submit" class="submit">Login</button>
     </form>

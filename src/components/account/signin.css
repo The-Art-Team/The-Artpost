@@ -30,6 +30,11 @@
   justify-content: center;
 }
 
+.require {
+  color: rgb(212, 3, 3);
+  font-size: 1.2rem;
+}
+
 form {
   width: 100%;
   max-width: 600px;
@@ -97,3 +102,36 @@ button[type=submit]:hover {
   background: rgb(49, 49, 49);
 }
 
+$input-height: 2.9rem;
+
+$show-pwd-width: 5rem;
+
+#passBlock{
+  position: relative;
+  
+  button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: $input-height;
+    width: $show-pwd-width;
+    color: black;
+    border-top: 4px solid rgb(202, 202, 202);
+    border-right: 4px solid rgb(202, 202, 202);
+    border-bottom: 4px solid rgb(202, 202, 202);
+    border-left: 0px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  input {
+    width: calc(100% - $show-pwd-width);
+  }
+}
+
+#passBlock:hover{
+  button {
+    color: #008834;
+  }
+}

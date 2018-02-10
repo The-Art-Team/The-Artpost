@@ -1,22 +1,31 @@
 <div class="form-contain">
     <form class="sign-up">
-        <h3>Sign Up</h3>
+      <h3>Sign Up</h3>
       <fieldset>
         <legend>Sign Up</legend>
 
-        <label>Are you an artist?</label>
+        <label><span class="require">* </span>Are you an artist?</label>
         <input class="radio" type="radio" name="check" value="yes"> <span class="radio-text">Yes</span>
         <input class="radio" type="radio" name="check" value="no"> <span class="radio-text">No</span>
-        
-        <label for="name">Name</label>
-          <input name="name" type="text" placeholder="Name">
-        
-        <label for="email">Email</label>
-          <input name="email" type="text" placeholder="Email">
-        
-        <label for="password">Password</label>
-          <input name="password" type="password" placeholder="Password">
-     
+
+
+        <label for="name"><span class="require">* </span>Name</label>
+        <input name="name" type="text" placeholder="Name">
+        <p class="error"></p>
+
+        <label for="email"><span class="require">* </span>Email</label>
+        <input name="email" type="text" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" 
+        title="Please provde an email in the form of you@somedomain.sometld" placeholder="Email@email.com">
+        <p class="error"></p>
+
+        <label for="password"><span class="require">* </span>Password:</label>
+        <p class="hint">Your password should be at least 6 characters long and contain at least one capital letter.</p>
+        <div id="passBlock">
+          <input name="password" id="password" type="password" minlength="6" required>
+          <p class="error"></p>
+          <button type="button" class="show-password" tabindex="-1">Show</button>
+        </div>
+
         <button type="submit" class="submit">Sign-up</button>
       </fieldset>
     </form>
