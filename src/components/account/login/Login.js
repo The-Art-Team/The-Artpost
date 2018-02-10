@@ -1,11 +1,8 @@
 import html from './login.html';
-import './login.css';
 import Template from '../../Template';
-import { db, auth } from '../../../services/firebase';
-
+import { auth } from '../../../services/firebase';
 
 const template = new Template(html);
-const users = db.ref('users');
 
 export default class Login {
 

@@ -1,17 +1,13 @@
 import html from './header.html';
 import './header.css';
 import Account from '../../account/Account';
-// import Results from '../../results/Results';
 import { auth } from '../../../services/firebase';
 import Template from '../../Template';
 import { removeChildren } from '../../dom';
 
-// const users = db.ref('users');
 const template = new Template(html);
 
 export default class Header {
-
-  
 
   render() {
     const dom = template.clone();
@@ -25,7 +21,6 @@ export default class Header {
         })
       );
     });
-
 
     const userItem = dom.querySelector('.user-nav');
     auth.onAuthStateChanged(user => {
@@ -44,7 +39,6 @@ export default class Header {
       removeChildren(userItem);
       userItem.appendChild(child);
     });
-
 
     return dom;
   }

@@ -1,5 +1,4 @@
 import html from './sign-up.html';
-import './signUp.css';
 import Template from '../../Template';
 import { db, auth } from '../../../services/firebase';
 
@@ -29,12 +28,9 @@ export default class SignUp {
       });
   }
 
-
-
   render() {
     const dom = template.clone();
 
-    
     dom.querySelector('form').addEventListener('submit', event => {
       event.preventDefault();
       this.handleSubmit(event.target);

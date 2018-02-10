@@ -37,7 +37,6 @@ export default class Profile {
       this.description.value = userBio;
       this.contact.value = userContact;
      
-
     });
     this.error = dom.querySelector('.error');
     this.form = dom.querySelector('form');

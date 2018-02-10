@@ -37,7 +37,6 @@ export default class User {
     else if(childPage === 'favorites') childComponent = new Favorites(itemsByUser.child(auth.currentUser.uid));
     else if(childPage === 'following') childComponent = new Following(childPage);
     else childComponent = new Profile();
-    console.log(childPage);
 
     this.childComponent = childComponent;
     this.section.appendChild(childComponent.render());
@@ -50,15 +49,12 @@ export default class User {
 
     this.section = dom.querySelector('section');
     const heading = dom.querySelector('h2');
-    
 
     this.add = dom.querySelector('.add-hide');
     users.child(auth.currentUser.uid).once('value', data => {
       const user = data.val();
-      // console.log('test', user);
       if(user.isArtist) this.add.classList.remove('add-hide');
       heading.textContent = 'hello ' + user.name;
-
     });
 
     this.setChildPage();

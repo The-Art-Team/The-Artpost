@@ -8,14 +8,11 @@ import { db } from '../../services/firebase';
 const template = new Template(html);
 const itemsImages = db.ref('items-images');
 
-
 export default class Image {
   constructor(key, isOwner) {
     this.key = key;
     this.isOwner = isOwner;
-    console.log(isOwner);
     this.itemsImages = itemsImages.child(key).limitToFirst(1);
-    
   }
 
   render() {

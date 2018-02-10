@@ -31,9 +31,6 @@ map.set('#Login', { Component: Login, isPublic: true });
 map.set('#SignUp', { Component: SignUp, isPublic: true });
 map.set('#category', { Component: CategoryList, isPublic: true });
 map.set('#items', { Component: Items, isPublic: true });
-
-
-
 const homepage = { Component: Home, isPublic: true };
 
 export default class App {

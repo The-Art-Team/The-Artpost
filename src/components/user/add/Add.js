@@ -1,7 +1,6 @@
 import Template from '../../Template';
 import html from './add.html';
 import './add.css';
-// import { removeChildren } from '../dom';
 import { db, auth, storage } from '../../../services/firebase';
 
 
@@ -16,8 +15,6 @@ export default class Add {
   constructor() {
     const currentUser = auth.currentUser;
     this.myItems = itemsByUser.child(currentUser.uid);
-    // this.itemImages = itemsImages.child(key);
-    // this.imageStorage = itemsImageStorage.child(key);
   }
 
   // submit art
@@ -59,10 +56,8 @@ export default class Add {
           imageKey, downloadUrl
         });
       });
-    });
-    
+    }); 
   }
-
 
   render() {
     const dom = template.clone();

@@ -12,11 +12,9 @@ export default class Results {
   handleSearch(searchTerm) {
     this.searchTerm = searchTerm;
     this.runSearch();
-    // console.log(searchTerm);
   }
 
   runSearch() {
-    // console.log(this.searchTerm);
     items(this.searchTerm)
       .then(data => {
         const itemResults = items.name;
@@ -30,7 +28,6 @@ export default class Results {
 
         const searchList = new Results(itemResults, categoryResults);
         itemSection.appendChild(searchList.render());
-      
       });
   }
 

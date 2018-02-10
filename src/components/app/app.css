@@ -11,7 +11,6 @@
 }
 
 .maxwidth-wrap {
-  /* width: 100%; */
   max-width: $maxViewportSize;
   margin: 0 auto;
   padding: 0 1rem;
@@ -19,20 +18,16 @@
 
 #header {
   grid-area: header;
-  /* background: $white; */
-  /* color: $black; */
   padding: $padding;
   text-align: center;
 }
 
 #main {
   grid-area: content;
-  /* background: $black; */
 }
 
 #footer {
   grid-area: footer;
   text-align: center;
   padding: 2rem 2rem 1rem;
-  /* background: $black; */
 }

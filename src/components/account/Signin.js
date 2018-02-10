@@ -28,9 +28,6 @@ export default class Signin {
     let childComponent;
     if(childPage === 'SignUp') childComponent = new SignUp();
     else childComponent = new Login();
-    console.log(childPage);
-
-    // this.updateHeader(childPage === 'my');
 
     this.childComponent = childComponent;
     this.section.appendChild(childComponent.render());

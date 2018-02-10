@@ -28,6 +28,5 @@ export default class Account {
   }
 
   unrender() {
-  
   }
 }

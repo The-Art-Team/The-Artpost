@@ -1,5 +1,4 @@
 import html from './footer.html';
-import './footer.css';
 import Template from '../../Template';
 
 const template = new Template(html);
