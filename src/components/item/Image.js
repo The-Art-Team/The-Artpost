@@ -11,7 +11,8 @@ export default class Image {
     const dom = template.clone();
     
     this.image = dom.querySelector('img');
-    this.image.alt = this.src;
+    this.image.alt = this.image.src;
+    console.log(this.src);
 
     dom.querySelector('img').src = getUrl(this.src, 'g_face,c_fill,w_500,h_500');
 
