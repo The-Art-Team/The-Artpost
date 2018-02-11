@@ -30,6 +30,7 @@ export default class Item {
     this.onImageValue = this.itemsImages.on('child_added', data => {
       // use for cloudinary below
       this.image.src = getUrl(data.val(), 'c_fill,w_500,h_500');
+      this.image.alt = this.caption.textContent;
     });
 
     return dom;

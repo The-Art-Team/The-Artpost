@@ -23,6 +23,7 @@ export default class Image {
 
     this.onImageValue = this.itemsImages.on('child_added', data => {
       this.image.src = getUrl(data.val(), 'ar_3:2,c_fill,g_face,w_600,q_auto:best');
+      this.image.alt = this.image.src;
     });
 
     return dom;
