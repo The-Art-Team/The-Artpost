@@ -9,6 +9,7 @@ const items = db.ref('items');
 const itemsByUser = db.ref('itemsByUser');
 const itemsImages = db.ref('items-images');
 
+// Another dead file???????
 export default class Upload {
 
   constructor(key) {

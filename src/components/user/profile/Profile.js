@@ -16,15 +16,16 @@ export default class Profile {
     this.error.textContent = '';
 
     const data = new FormData(form);
-    const item = {};
-    data.forEach((value, key) => item[key] = value);    
+    const updateObj = {};
+    data.forEach((value, key) => updateObj[key] = value);    
 
-    this.myUser.update(item)
+    this.myUser.update(updateObj)
       .then(() => {
         this.error.textContent = 'Bio has been updated';
       })
       .catch(err => this.error.textContent = err);
   }
+
   render() {
     const dom = template.clone();
     this.description = dom.querySelector('#description');
@@ -38,6 +39,7 @@ export default class Profile {
       this.contact.value = userContact;
      
     });
+
     this.error = dom.querySelector('.error');
     this.form = dom.querySelector('form');
     this.form.addEventListener('submit', event => {

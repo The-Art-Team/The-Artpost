@@ -8,6 +8,9 @@ import { removeChildren } from '../dom';
 
 const template = new Template(html);
 
+// Signin was a bit confusing at first,
+// Thought it was duplicate of login, but it is 
+// a parent of both
 export default class Signin {
   constructor() {
     this.hashChange = () => this.setChildPage();
@@ -16,9 +19,7 @@ export default class Signin {
 
   setChildPage() {
     const routes = window.location.hash.split('/');
-    
     const childPage = routes[1] || '';
-  
     if(this.childPage === childPage) return;
 
     this.childPage = childPage;

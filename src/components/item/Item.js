@@ -12,6 +12,8 @@ export default class Item {
   constructor(key) {
     this.key = key;
     this.item = items.child(key);
+    // Given that each item only has one image, would have been 
+    // simpler in your case to just give url property to item
     this.itemsImages = itemsImages.child(key).limitToFirst(1);
   }
 
