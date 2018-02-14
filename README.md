@@ -1,7 +1,5 @@
 # The-Artpost
 
-// initial grading commit, part 2
-
 ## Project Info:
 
 Discover your art!
