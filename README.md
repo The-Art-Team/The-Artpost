@@ -1,6 +1,6 @@
 # The-Artpost
 
-// initial grading commit
+// initial grading commit, part 2
 
 ## Project Info:
 
