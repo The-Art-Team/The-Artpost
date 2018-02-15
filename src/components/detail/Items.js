@@ -8,6 +8,8 @@ import { db } from '../../services/firebase';
 const template = new Template(html);
 const items = db.ref('items');
 
+// Using "itemKey" instead of "childPage" makes this component easier to understand.
+// Not really "Items", how about just Item?
 export default class Items {
 
   constructor() {
@@ -17,17 +19,16 @@ export default class Items {
 
   setChildPage() {
     const routes = window.location.hash.split('/');
-    const childPage = routes[1] || '';
-    if(this.childPage === childPage) return;
+    const itemKey = routes[1] || '';
+    if(this.itemKey === itemKey) return;
 
-    this.childPage = childPage;
+    this.itemKey = itemKey;
     if(this.childComponent) this.childComponent.unrender();
-    console.log(items.child);
     
     removeChildren(this.section);
 
     let childComponent;
-    if(childPage) childComponent = new ItemDetail(childPage);
+    if(itemKey) childComponent = new ItemDetail(itemKey);
 
     this.childComponent = childComponent;
     this.section.appendChild(childComponent.render());

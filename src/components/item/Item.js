@@ -12,6 +12,8 @@ export default class Item {
   constructor(key) {
     this.key = key;
     this.item = items.child(key);
+    // Given that each item only has one image, would have been 
+    // simpler in your case to just give url property to item
     this.itemsImages = itemsImages.child(key).limitToFirst(1);
   }
 
@@ -29,6 +31,7 @@ export default class Item {
 
     this.onImageValue = this.itemsImages.on('child_added', data => {
       // use for cloudinary below
+      // but all your images will be 500px square! no srcset for retina?
       this.image.src = getUrl(data.val(), 'c_fill,w_500,h_500');
       this.image.alt = this.caption.textContent;
     });

@@ -53,7 +53,6 @@ nav {
 }
 
 .ulist li:hover .submenu {
-  /* display: block; */
   max-height: 250px;
 }
 
@@ -96,11 +95,10 @@ input.checkbox {
 
 /*  -------- Media Queries ------- */
 
+/* These styles were written with a desktop-first approach. See https://medium.com/@mrmrs_/mobile-first-css-48bc4cc3f60f */
+
 /* Mobile */
 @media only screen and (max-width: 640px) {
-  .header-flex {
-    /* flex-direction: column; */
-  }
 
   button.sign-out {
     margin: 2rem 1rem 0;

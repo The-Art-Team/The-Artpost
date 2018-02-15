@@ -13,14 +13,12 @@
 .wrapper {
     padding-top: 2rem;
     p {
-        /* max-width: 70%; */
         margin: .5rem auto;
         color: black;
     }
 }
 
 .img1, .img2 {
-    /* max-width: 70%; */
     margin: .5rem auto;
     justify-self: center;
 }

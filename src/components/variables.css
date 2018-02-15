@@ -7,6 +7,7 @@ $lightgray: #eeeeee;
 $darkgray: #444140;
 $white: #ffffff;
 $gray: #E0E0E0;
+/* I have a tendency to avoid pure black on the web in favor of dark greys or off blacks. See https://ianstormtaylor.com/design-tip-never-use-black/ */
 $black: #000000;
 
 $maxViewportSize: 1280px;

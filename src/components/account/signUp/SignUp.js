@@ -7,11 +7,12 @@ const users = db.ref('users');
 
 export default class SignUp {
 
-  handleSubmit(form) {
-    const isArtist = form.elements.check.value === 'yes';
-    const name = form.elements.name.value;
-    const email = form.elements.email.value;
-    const password = form.elements.password.value;
+  // destructuring helps.with.reducing.long.chains.of.properties
+  handleSubmit({ elements }) {
+    const isArtist = elements.check.checked;
+    const name = elements.name.value;
+    const email = elements.email.value;
+    const password = elements.password.value;
 
     auth.createUserWithEmailAndPassword(email, password)
       .then(user => {
@@ -28,10 +29,12 @@ export default class SignUp {
       });
   }
 
+  // if you had created a specific "password" component, you could 
+  // re-use in both signup and login
   handleToggleShowPassword() {
-    const type = this.password.type;
-    this.password.type = type === 'password' ? 'text' : 'password';
-    this.showPassword.textContent = type === 'password' ? 'Hide' : 'Show';
+    const isPassword = this.password.type === 'password';
+    this.password.type = isPassword ? 'text' : 'password';
+    this.showPassword.textContent = isPassword ? 'Hide' : 'Show';
   }
 
   render() {
@@ -44,12 +47,12 @@ export default class SignUp {
 
     // Submit true when all inputs are correct
     const form = dom.querySelector('form');
-    this.submit = dom.querySelector('button[type=submit');
+    const submit = dom.querySelector('button[type=submit');
     form.addEventListener('blur', event => {
       const element = event.srcElement;
       if(element.type === 'submit' || element.type === 'button') return;
       element.nextElementSibling.textContent = element.validationMessage;
-      this.submit.disabled = !form.checkValidity();
+      submit.disabled = !form.checkValidity();
     }, true);
 
     // Toggle show password listener

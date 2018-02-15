@@ -14,7 +14,6 @@ export default class CategoryList {
     const category = routes[1] || '';
     this.categoryItems = items.orderByChild('category').equalTo(category);
     this.category = category;
-    console.log(this.category);
   }
   
   render() {

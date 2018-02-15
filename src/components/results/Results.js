@@ -7,6 +7,7 @@ import { db } from '../../services/firebase';
 const template = new Template(html);
 const items = db.ref('items');
 
+// I think component isn't used or is a work in progress?????
 export default class Results {
 
   handleSearch(searchTerm) {

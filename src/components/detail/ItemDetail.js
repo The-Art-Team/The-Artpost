@@ -14,20 +14,18 @@ const itemsImages = db.ref('items-images');
 const itemsImageStorage = storage.ref('items');
 const users = db.ref('users');
 
-
 export default class ItemDetail {
 
   constructor(key) {
     this.key = key;
     this.item = items.child(key);
-    this.artist = users;
-    if(auth.currentUser) {
-      this.currentUser = true;
-      this.favoriteRef = users.child(auth.currentUser.uid).child('favorites').child(this.key);
-      this.uid = auth.currentUser.uid;
-    } else {
-      this.uid = '';
-    }
+  }
+
+  // you would launch the modal based on user clicking remove
+  showConfirmModal() {
+    // This method launch the modal, passing in two functions that lead to two possible results:
+    // 1) remove function is called which triggers this.removeItem()
+    // 2) cancel function is called which just closes the modal
   }
 
   removeItem() {
@@ -66,46 +64,57 @@ export default class ItemDetail {
     this.favWrapper = dom.querySelector('.favwrapper');
     this.heart = dom.querySelector('.heart');
 
+    // None of this functionality requires knowing the item data.
+    // Issue is that the `this.item.on('value')` will fire multiple 
+    // times when the data changes!
+
+    this.favHeader = fav.querySelector('.fav');
+    const { currentUser } = auth;
+
+    if(currentUser) {
+      this.favoriteRef = users
+        .child(currentUser.uid)
+        .child('favorites')
+        .child(this.key);
+
+      fav.addEventListener('click', () => {
+        this.favoriteRef.transaction(current => {
+          return current ? null : true ;
+        });
+      });
+
+      this.onFavoriteValue = this.favoriteRef.on('value', (data) => {
+        const isFavorite = data.val();
+        this.favHeader.innerHTML = isFavorite ? '<span class="red">remove favorite</span>' : 'add to favorite';
+        this.heart.src = isFavorite ? heartRed : heart;
+      });
+
+    } else {
+      this.favWrapper.classList.toggle('hideFav');
+    }
+
     this.onValue = this.item.on('value', data => {
       const item = data.val();
       // we might have deleted:
       if(!item) return;
 
-      
-      this.favHeader = fav.querySelector('.fav');
-      if(this.currentUser) {
-        fav.addEventListener('click', () => {
-          this.favoriteRef.transaction(current => {
-            return current ? null : true ;
-          });
-        });
-
-        this.onFavoriteValue = this.favoriteRef.on('value', (data) => {
-          // this.favHeader.textContent = data.val() ? 'remove favorite' : 'add to favorite';
-          this.favHeader.innerHTML = data.val() ? '<span class="red">remove favorite</span>' : 'add to favorite';
-          this.heart.src = data.val() ? heartRed : heart;
-        });
-      } else {
-        this.favWrapper.classList.toggle('hideFav');
-      }
-
-
       bread.innerHTML = `<a href="#home">home </a> > <a href="#category/${item.category}"> ${item.category} </a> > <a href="#items/${this.key}"> ${item.name}</a>`;
       header.textContent = `${item.name}`;
       text.textContent = `${item.description}`;
-
       
       users.child(item.owner).child('name').once('value', (data) => {
         byArtist.textContent = `Created by: ${data.val()}`;
       });
 
-      const isOwner = item.owner === this.uid;
+      const isOwner = currentUser && item.owner === currentUser.uid;
       this.images = new Image(this.key, isOwner);
       imageSection.append(this.images.render());
 
       if(isOwner) {
         removeButton.addEventListener('click', () => {
           this.removeItem();
+          // so instead call:
+          // this.showConfirmModal();
         });
       }
       else {
@@ -118,7 +127,7 @@ export default class ItemDetail {
 
   unrender() {
     this.favoriteRef.off('value', this.onFavoriteValue);
-    items.child(this.key).off('value', this.onValue);
+    this.item.off('value', this.onValue);
     this.images.unrender();
   }
 }

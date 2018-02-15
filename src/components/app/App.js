@@ -3,7 +3,8 @@ import html from './app.html';
 import './app.css';
 import Header from './header/Header';
 import Footer from './footer/Footer';
-import Auth from '../auth/Auth';
+// I don't think this is used???
+// import Auth from '../auth/Auth';
 import Home from '../home/Home';
 import Account from '../account/Account';
 import Signin from '../account/Signin';
@@ -21,7 +22,7 @@ const template = new Template(html);
 
 // Hash Navigation
 const map = new Map();
-map.set('#auth', { Component: Auth, isPublic: true });
+// map.set('#auth', { Component: Auth, isPublic: true });
 map.set('#trending', { Component: TrendingList, isPublic: true });
 map.set('#account', { Component: Account, isPublic: true });
 map.set('#signin', { Component: Signin, isPublic: true });

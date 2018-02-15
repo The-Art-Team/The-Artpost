@@ -75,7 +75,6 @@ export default class Add {
   }
 
   unrender() {
-    this.itemsImages.on('child_added', this.childAdded);
-    this.itemsImages.on('child_removed', this.childRemoved);
+    // no listeners used!
   }
 }
