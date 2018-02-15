@@ -58,6 +58,7 @@ fieldset {
 label {
   display: block;
   padding: 1rem 0 .5rem;
+  /* careful in this file! do you mean black or $black? if you were to update the variable's hex value none of the colors here would change */
   color: black;
 }
 
@@ -116,10 +117,8 @@ $show-pwd-width: 5rem;
     height: $input-height;
     width: $show-pwd-width;
     color: black;
-    border-top: 4px solid rgb(202, 202, 202);
-    border-right: 4px solid rgb(202, 202, 202);
-    border-bottom: 4px solid rgb(202, 202, 202);
-    border-left: 0px;
+    border: 4px solid rgb(202, 202, 202);
+    border-left: 0;
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: 600;

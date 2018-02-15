@@ -1,3 +1,4 @@
+/* is this component used anywhere? */
 import html from './search-list.html';
 import './searchList.css';
 // import Item from '../item/Item';

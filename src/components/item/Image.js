@@ -1,3 +1,4 @@
+/* I don't think this file gets used anywhere...? */
 import html from './image.html';
 import './image.css';
 import Template from '../../Template';

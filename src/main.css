@@ -59,6 +59,7 @@ img {
   height: auto;
 }
 
+/* Setting all links to the same color as your body copy? What if there are links in (say) the artist bio body copy? */
 a {
   text-decoration: none;
   color: $black;
@@ -67,6 +68,7 @@ a {
   border-bottom: 3px solid $white;
 }
 
+/* this looks nice but remember hover cues don't help on touch screens */
 a:hover {
   color: $black;
   border-bottom: 3px solid $accent;
